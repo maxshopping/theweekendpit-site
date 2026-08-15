@@ -1,0 +1,8 @@
+# core.autocrlf=true on Windows misdetects the PDF as text and would
+# CRLF-mangle it on checkout, corrupting the download Vercel serves.
+*.pdf  binary
+*.png  binary
+
+*.html text eol=lf
+*.svg  text eol=lf
+*.md   text eol=lf

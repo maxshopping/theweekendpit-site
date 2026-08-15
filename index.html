@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Weekend Pit — the Thursday email for weekend smokers</title>
+<meta name="description" content="One free email every Thursday: a BBQ technique explained properly, a recipe timed backward from Saturday dinner, and gear reviews that name the flaw. Plus a free temperature cheat-sheet.">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="assets/favicon-32.png" sizes="32x32">
+<link rel="apple-touch-icon" href="assets/favicon-180.png">
+<meta property="og:title" content="The Weekend Pit">
+<meta property="og:description" content="One email, every Thursday at 7am, so Saturday's cook goes right.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://theweekendpit.com">
+<style>
+  :root{
+    --ink:#6B2B2B;        /* oxblood */
+    --brass:#B5762E;
+    --char:#1F1C1A;
+    --bone:#F2ECE2;
+    --paper:#FBF8F3;
+    --gray:#6E6660;
+    --hair:#DDD4C7;
+    --serif:Georgia,"Iowan Old Style","Times New Roman",serif;
+    --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--bone);color:var(--char);font-family:var(--sans);
+       font-size:17px;line-height:1.65;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:760px;margin:0 auto;padding:0 24px}
+  a{color:var(--ink)}
+
+  /* ---------- nav ---------- */
+  nav{padding:22px 0;border-bottom:1px solid var(--hair)}
+  nav .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px}
+  nav img{width:38px;height:38px;display:block}
+  nav .links{font-size:12px;letter-spacing:2.4px;text-transform:uppercase;font-weight:700}
+  nav .links a{color:var(--gray);text-decoration:none;margin-left:22px}
+  nav .links a:hover{color:var(--ink)}
+
+  /* ---------- hero ---------- */
+  header{text-align:center;padding:64px 0 56px}
+  header img.mark{width:132px;height:132px;margin-bottom:26px}
+  h1{font-family:var(--serif);font-size:52px;line-height:1.1;margin:0 0 20px;
+     letter-spacing:-.5px;color:var(--char)}
+  .lede{font-size:19px;color:#4A4340;max-width:580px;margin:0 auto 34px}
+  .lede b{color:var(--char)}
+
+  /* ---------- signup ---------- */
+  .signup{max-width:520px;margin:0 auto}
+  .signup form{display:flex;gap:10px}
+  .signup input[type=email]{flex:1;min-width:0;padding:15px 16px;font-size:16px;font-family:var(--sans);
+    border:1.5px solid #C9BCA9;border-radius:3px;background:var(--paper);color:var(--char)}
+  .signup input[type=email]:focus{outline:none;border-color:var(--ink)}
+  .signup button{padding:15px 24px;font-size:15px;font-weight:700;font-family:var(--sans);
+    background:var(--ink);color:var(--bone);border:0;border-radius:3px;cursor:pointer;white-space:nowrap;
+    letter-spacing:.3px}
+  .signup button:hover{background:#571F1F}
+  .micro{font-size:13px;color:var(--gray);margin-top:12px}
+
+  /* ---------- bonus band ---------- */
+  .band{background:var(--char);color:var(--bone);margin-top:64px;padding:44px 0}
+  .band .wrap{display:flex;gap:30px;align-items:center}
+  .band .sheet{flex:none;width:132px;background:var(--paper);border-radius:2px;overflow:hidden;
+    box-shadow:0 12px 30px rgba(0,0,0,.42);display:block;transition:transform .2s}
+  .band .sheet:hover{transform:translateY(-3px)}
+  .band .sheet img{width:100%;display:block}
+  .band h2{font-family:var(--serif);font-size:26px;margin:0 0 10px;color:var(--bone);font-weight:normal}
+  .band p{margin:0;color:#BEB3A6;font-size:15.5px}
+  .band .brasstag{color:var(--brass);font-size:11px;letter-spacing:3px;font-weight:800;margin-bottom:10px}
+
+  /* ---------- sections ---------- */
+  section{padding:60px 0}
+  .eyebrow{color:var(--brass);font-size:11px;letter-spacing:3.4px;font-weight:800;
+    text-transform:uppercase;margin-bottom:26px;text-align:center}
+  .item{padding:24px 0;border-top:1px solid var(--hair)}
+  .item:last-child{border-bottom:1px solid var(--hair)}
+  .item h3{font-family:var(--serif);font-size:22px;margin:0 0 6px;color:var(--ink);font-weight:normal}
+  .item p{margin:0;color:#4A4340;font-size:16px}
+
+  .pitch{background:var(--paper);border-top:1px solid var(--hair);border-bottom:1px solid var(--hair)}
+  .pitch p{font-size:18px;color:#413B38;max-width:640px;margin:0 auto 18px}
+  .pitch p:last-child{margin-bottom:0}
+  .pitch .kicker{font-family:var(--serif);font-size:28px;color:var(--char);text-align:center;margin-bottom:26px}
+
+  .closer{text-align:center;padding:66px 0 74px}
+  .closer h2{font-family:var(--serif);font-size:34px;margin:0 0 22px;font-weight:normal}
+
+  /* ---------- footer ---------- */
+  footer{background:var(--char);color:#9C938A;padding:40px 0;font-size:13px}
+  footer .wrap{display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap}
+  footer img{width:42px;height:42px;flex:none}
+  footer .thin{color:var(--brass);font-style:italic;font-family:var(--serif);font-size:15px}
+  footer .disc{max-width:430px;line-height:1.6}
+  footer a{color:#9C938A}
+
+  @media (max-width:640px){
+    h1{font-size:36px}
+    header{padding:44px 0 40px}
+    header img.mark{width:104px;height:104px}
+    .lede{font-size:17px}
+    .signup form{flex-direction:column}
+    .band .wrap{flex-direction:column;text-align:center}
+    .closer h2{font-size:27px}
+    nav .links a{margin-left:14px;font-size:11px}
+  }
+</style>
+</head>
+<body>
+
+<nav><div class="wrap">
+  <a href="#top"><img src="assets/micro.svg" alt="The Weekend Pit"></a>
+  <div class="links">
+    <a href="#inside">What's inside</a>
+    <a href="#signup">Subscribe</a>
+  </div>
+</div></nav>
+
+<header id="top"><div class="wrap">
+  <img class="mark" src="assets/logo-stamp.svg" alt="The Weekend Pit">
+  <h1>Your Saturday cook,<br>planned by Thursday.</h1>
+  <p class="lede">One free email, every Thursday at 7am: <b>one technique explained properly</b>, <b>one recipe with a timeline that counts backward from Saturday dinner</b>, and <b>one piece of gear that's actually worth it</b> — flaw included.</p>
+
+  <div class="signup" id="signup">
+    <!-- ============================================================
+         BEEHIIV EMBED GOES HERE.
+         In beehiiv: Grow → Subscribe Forms → copy the embed code and
+         replace this entire <form> block with it. The styling above
+         already matches; beehiiv's iframe embed will inherit width.
+         ============================================================ -->
+    <form action="https://embeds.beehiiv.com/REPLACE-WITH-YOUR-FORM-ID" method="post">
+      <input type="email" name="email" placeholder="your@email.com" required aria-label="Email address">
+      <button type="submit">Send me Thursday's issue</button>
+    </form>
+    <p class="micro">Free. One email a week. Unsubscribe anytime — no hard feelings at the fence line.</p>
+  </div>
+</div></header>
+
+<div class="band"><div class="wrap">
+  <a class="sheet" href="assets/temperature-sheet.pdf" target="_blank" rel="noopener"><img src="assets/sheet-thumb.png" alt="The Temperature Sheet"></a>
+  <div>
+    <div class="brasstag">FREE WHEN YOU SIGN UP</div>
+    <h2>The Temperature Sheet</h2>
+    <p>One page, every number that matters at the pit — USDA safety floors and real pull temps for brisket, butt, ribs and birds. Checked against the USDA and the people who cook for a living. Sized for the inside of a cabinet door.</p>
+  </div>
+</div></div>
+
+<section id="inside"><div class="wrap">
+  <div class="eyebrow">What's in every issue</div>
+
+  <div class="item">
+    <h3>The Deep Smoke</h3>
+    <p>One technique, explained properly: the why, the how, and the one mistake everyone makes. No mystique, no gatekeeping.</p>
+  </div>
+  <div class="item">
+    <h3>This Weekend's Cook</h3>
+    <p>One recipe with the timeline built backward from Saturday dinner, so Thursday-you knows exactly what Saturday-you needs.</p>
+  </div>
+  <div class="item">
+    <h3>Pit Find</h3>
+    <p>One piece of gear, honestly reviewed. Sometimes it's $12. Every review names a flaw, because that's what makes the praise worth anything.</p>
+  </div>
+  <div class="item">
+    <h3>Reader's Pit</h3>
+    <p>One reader's cook each week, and the one thing they'd do differently. Your smoker could be famous.</p>
+  </div>
+</div></section>
+
+<section class="pitch"><div class="wrap">
+  <p class="kicker">The pitch, straight.</p>
+  <p>You bought the smoker. You've watched the videos — three of them, contradicting each other, at 1.5x speed in the parking lot of the butcher shop.</p>
+  <p>What you actually need is one calm, checked answer to this weekend's question, delivered before you shop.</p>
+  <p>That's the whole product. Every claim verified against the USDA and working pitmasters before it's sent. Every issue useful even if you never buy a thing.</p>
+</div></section>
+
+<section class="closer"><div class="wrap">
+  <h2>Thursday, 7am. Bring coffee.</h2>
+  <div class="signup">
+    <!-- Same beehiiv embed as above -->
+    <form action="https://embeds.beehiiv.com/REPLACE-WITH-YOUR-FORM-ID" method="post">
+      <input type="email" name="email" placeholder="your@email.com" required aria-label="Email address">
+      <button type="submit">Send me Thursday's issue</button>
+    </form>
+    <p class="micro">Free. One email a week. Unsubscribe anytime.</p>
+  </div>
+</div></section>
+
+<footer><div class="wrap">
+  <img src="assets/micro-dark.svg" alt="The Weekend Pit">
+  <p class="disc">The Weekend Pit is reader-supported. Some gear links are affiliate links, always labeled — if you buy through them we earn a small commission at no extra cost to you. We only recommend gear we'd tell a friend to buy.</p>
+  <span class="thin">Keep the smoke thin.</span>
+</div></footer>
+
+</body>
+</html>
