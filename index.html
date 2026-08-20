@@ -8,10 +8,24 @@
 <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
 <link rel="icon" href="assets/favicon-32.png" sizes="32x32">
 <link rel="apple-touch-icon" href="assets/favicon-180.png">
-<meta property="og:title" content="The Weekend Pit">
-<meta property="og:description" content="One email, every Thursday at 7am, so Saturday's cook goes right.">
+<link rel="canonical" href="https://theweekendpit.com/">
+<meta name="theme-color" content="#6B2B2B">
+<meta property="og:site_name" content="The Weekend Pit">
+<meta property="og:title" content="The Weekend Pit — the Thursday email for weekend smokers">
+<meta property="og:description" content="One email, every Thursday at 7am, so Saturday's cook goes right. A technique explained properly, a recipe timed backward from Saturday dinner, and gear reviews that name the flaw.">
 <meta property="og:type" content="website">
-<meta property="og:url" content="https://theweekendpit.com">
+<meta property="og:url" content="https://theweekendpit.com/">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://theweekendpit.com/assets/og-image.png">
+<meta property="og:image:type" content="image/png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="The Weekend Pit — your Saturday cook, planned by Thursday.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="The Weekend Pit — the Thursday email for weekend smokers">
+<meta name="twitter:description" content="One free email every Thursday at 7am: a BBQ technique explained properly, a recipe timed backward from Saturday dinner, and gear reviews that name the flaw.">
+<meta name="twitter:image" content="https://theweekendpit.com/assets/og-image.png">
+<meta name="twitter:image:alt" content="The Weekend Pit — your Saturday cook, planned by Thursday.">
 <style>
 :root{
   --ink:#6B2B2B;        /* oxblood */
@@ -34,7 +48,7 @@ body::before{content:'';display:block;height:3px;
 .wrap{max-width:1200px;margin:0 auto;padding:0 32px}
 a{color:var(--ink)}
 
-/* ---------- scroll reveals ---------- */
+/* ---------- scroll reveals (progressive enhancement only) ---------- */
 .js .rv{opacity:0;transition:opacity 1s var(--ease),transform 1s var(--ease)}
 .js .rv-l{transform:translateX(-70px)}
 .js .rv-r{transform:translateX(70px)}
@@ -49,6 +63,9 @@ a{color:var(--ink)}
 .js .li2{animation-delay:.18s}
 .js .li3{animation-delay:.36s}
 .js .li4{animation-delay:.54s}
+/* kill-switch: reduced motion, no IntersectionObserver, automated capture, or a stalled reveal */
+.no-rv .rv,.no-rv .li{opacity:1!important;transform:none!important;
+  transition:none!important;animation:none!important}
 
 /* ---------- nav ---------- */
 nav{position:sticky;top:0;z-index:60;padding:18px 0;
@@ -72,7 +89,12 @@ h1{font-family:var(--serif);font-size:clamp(46px,5.6vw,88px);line-height:1.06;ma
 
 /* ---------- signup ---------- */
 .signup{max-width:600px;margin:0 auto}
-.signup .bh{min-height:104px}
+/* beehiiv embed: the form is a fixed 134px block, pinned here so the iframe can
+   never clip its own button on narrow screens (beehiiv only measures height once). */
+.signup .bh{min-height:134px}
+.signup .bh iframe{width:100%!important;height:134px!important;display:block;border:0}
+.signup .bh noscript a{display:inline-block;padding:17px 34px;font-size:16px;font-weight:700;
+  background:var(--ink);color:var(--bone);border-radius:3px;text-decoration:none}
 .signup form{display:flex;gap:10px}
 .signup input[type=email]{flex:1;min-width:0;padding:16px 18px;font-size:16px;font-family:var(--sans);
   border:1.5px solid #C9BCA9;border-radius:3px;background:var(--paper);color:var(--char)}
@@ -86,6 +108,10 @@ h1{font-family:var(--serif);font-size:clamp(46px,5.6vw,88px);line-height:1.06;ma
   transition:background .25s,transform .25s,box-shadow .25s}
 .signup a.gobtn:hover{background:#571F1F;transform:translateY(-2px);box-shadow:0 14px 30px rgba(107,43,43,.28)}
 .micro{font-size:13.5px;color:var(--gray);margin-top:14px}
+.micro.peek{margin-top:10px}
+.micro.peek a{color:var(--gray);text-decoration:none;border-bottom:1px solid var(--hair);
+  padding-bottom:2px;transition:color .25s,border-color .25s}
+.micro.peek a:hover{color:var(--ink);border-color:var(--ink)}
 
 /* ---------- bonus band ---------- */
 .band{background:var(--char);color:var(--bone);padding:96px 0;overflow:hidden}
@@ -96,6 +122,11 @@ h1{font-family:var(--serif);font-size:clamp(46px,5.6vw,88px);line-height:1.06;ma
 .band h2{font-family:var(--serif);font-size:clamp(26px,2.6vw,38px);margin:0 0 14px;color:var(--bone);font-weight:normal}
 .band p{margin:0;color:#BEB3A6;font-size:17px;max-width:640px}
 .band .brasstag{color:var(--brass);font-size:12px;letter-spacing:3.4px;font-weight:800;margin-bottom:14px}
+.band-cta{margin-top:20px!important;display:flex;flex-wrap:wrap;align-items:baseline;gap:8px 18px}
+.band-cta a{color:var(--brass);font-weight:700;text-decoration:none;border-bottom:1px solid rgba(181,118,46,.45);
+  padding-bottom:2px;transition:color .25s,border-color .25s}
+.band-cta a:hover{color:#D9A558;border-color:#D9A558}
+.band-cta span{font-size:14.5px;color:#8E8377}
 
 /* ---------- sections ---------- */
 section{padding:96px 0;overflow:hidden}
@@ -108,6 +139,27 @@ section{padding:96px 0;overflow:hidden}
 .item .num{font-size:12px;font-weight:800;letter-spacing:.3em;color:var(--brass);margin-bottom:8px}
 .item h3{font-family:var(--serif);font-size:clamp(24px,2vw,30px);margin:0 0 8px;color:var(--ink);font-weight:normal}
 .item p{margin:0;color:#4A4340;font-size:17px}
+
+/* ---------- proof ---------- */
+.proof{background:var(--paper);border-bottom:1px solid var(--hair)}
+.proof-grid{display:grid;grid-template-columns:1fr;gap:46px;align-items:start}
+.sample{background:var(--bone);border:1px solid var(--hair);border-left:3px solid var(--brass);
+  padding:34px 36px}
+.sample .tag{color:var(--brass);font-size:11.5px;letter-spacing:3.2px;font-weight:800;
+  text-transform:uppercase;margin-bottom:12px}
+.sample h3{font-family:var(--serif);font-size:clamp(23px,2.1vw,31px);margin:0 0 16px;
+  color:var(--ink);font-weight:normal;line-height:1.2}
+.sample p{margin:0;color:#413B38;font-size:17px}
+.sample .cont{margin-top:20px;padding-top:18px;border-top:1px solid var(--hair);
+  font-size:15.5px;color:var(--gray)}
+.method .tag{color:var(--brass);font-size:11.5px;letter-spacing:3.2px;font-weight:800;
+  text-transform:uppercase;margin-bottom:18px}
+.method ul{margin:0;padding:0;list-style:none}
+.method li{position:relative;padding:0 0 16px 26px;font-size:16px;color:#4A4340;line-height:1.55}
+.method li::before{content:'';position:absolute;left:2px;top:10px;width:9px;height:1.5px;
+  background:var(--brass)}
+.method li:last-child{padding-bottom:0}
+.method li b{color:var(--char)}
 
 .pitch{background:var(--paper);border-top:1px solid var(--hair);border-bottom:1px solid var(--hair);text-align:center}
 .pitch p{font-size:clamp(18px,1.5vw,22px);color:#413B38;max-width:780px;margin:0 auto 22px;text-align:left}
@@ -127,6 +179,7 @@ footer .disc{max-width:520px;line-height:1.6}
 footer a{color:#9C938A}
 
 @media (min-width:900px){
+  .proof-grid{grid-template-columns:1.32fr 1fr;gap:76px}
   .grid{grid-template-columns:1fr 1fr}
   .item:last-child{border-bottom:0}
   .item:nth-last-child(-n+2){border-bottom:1px solid var(--hair)}
@@ -139,6 +192,9 @@ footer a{color:#9C938A}
 }
 @media (max-width:640px){
   body{font-size:17px}
+  .wrap{padding:0 22px}
+  .sample{padding:26px 24px}
+  .band-cta{justify-content:center}
   header{padding:56px 0 48px;min-height:0}
   header img.mark{width:112px;height:112px}
   h1{letter-spacing:-.5px}
@@ -148,6 +204,10 @@ footer a{color:#9C938A}
   .closer{padding:80px 0 90px}
   nav .links a{margin-left:14px;font-size:11px}
   .js .rv-l,.js .rv-r{transform:translateX(0) translateY(40px)}
+}
+@media print{
+  .rv,.li{opacity:1!important;transform:none!important;animation:none!important;transition:none!important}
+  nav{position:static}
 }
 @media (prefers-reduced-motion: reduce){
   .js .rv,.js .li{opacity:1 !important;transform:none !important;animation:none !important;transition:none !important}
@@ -176,15 +236,40 @@ footer a{color:#9C938A}
       <noscript><a href="https://theweekendpit.beehiiv.com/subscribe">Subscribe to The Weekend Pit</a></noscript>
     </div>
     <p class="micro">Free. One email a week. Unsubscribe anytime — no hard feelings at the fence line.</p>
+    <p class="micro peek"><a href="#proof">Read a piece of Issue No.&nbsp;01 ↓</a></p>
   </div>
 </div></header>
+
+<section class="proof" id="proof"><div class="wrap">
+  <div class="eyebrow rv rv-u">A piece of Issue No. 01</div>
+
+  <div class="proof-grid">
+    <article class="sample rv rv-l">
+      <div class="tag">The Deep Smoke</div>
+      <h3>The stall isn't stuck. It's sweating.</h3>
+      <p>Big cuts climb steadily to about 150°F internal, then flatline — sometimes for hours — before climbing again. For decades pitmasters blamed melting fat or dissolving collagen. Then physicist Greg Blonder actually tested it, and the answer turned out to be the same reason you don't overheat on a July run: evaporative cooling. Around 150°F, moisture pushed to the surface of the meat evaporates fast enough that the cooling exactly cancels the heat of your pit. Your pork butt is sweating. Nothing is wrong. Nothing is broken. It's physics, holding the door.</p>
+      <p class="cont">That's a third of one section. The rest of Issue No. 01 covers the three honest ways through the stall, a pulled-pork timeline counted backward from Saturday dinner, and a $39 thermometer with its flaw named.</p>
+    </article>
+
+    <aside class="method rv rv-r d1">
+      <div class="tag">How it gets checked</div>
+      <ul>
+        <li>Every temperature is verified against <b>USDA</b> guidance before it's printed.</li>
+        <li>Every technique is cross-checked against at least <b>two</b> credible sources — and the sources get named.</li>
+        <li>Every gear review names a flaw. Affiliate links are always labeled.</li>
+        <li><b>No invented testimonials.</b> When a reader says something worth quoting, their name will be on it.</li>
+      </ul>
+    </aside>
+  </div>
+</div></section>
 
 <div class="band"><div class="wrap band-grid">
   <a class="sheet rv rv-l" href="assets/temperature-sheet.pdf" target="_blank" rel="noopener"><img data-plx="30" src="assets/sheet-thumb.png" alt="The Temperature Sheet"></a>
   <div class="rv rv-r d1">
-    <div class="brasstag">FREE WHEN YOU SIGN UP</div>
+    <div class="brasstag">FREE DOWNLOAD · NO SIGNUP NEEDED</div>
     <h2>The Temperature Sheet</h2>
     <p>One page, every number that matters at the pit — USDA safety floors and real pull temps for brisket, butt, ribs and birds. Checked against the USDA and the people who cook for a living. Sized for the inside of a cabinet door.</p>
+    <p class="band-cta"><a href="assets/temperature-sheet.pdf" target="_blank" rel="noopener">Download the PDF →</a><span>Subscribers get a copy in the welcome email too.</span></p>
   </div>
 </div></div>
 
@@ -238,33 +323,58 @@ footer a{color:#9C938A}
 
 <script>
 (function(){
-  var prm = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
-  document.documentElement.classList.add('js');
-  if (prm) return;
-  if ('IntersectionObserver' in window){
-    var io = new IntersectionObserver(function(es){
-      es.forEach(function(e){ e.target.classList.toggle('in', e.isIntersecting); });
+  var doc = document, root = doc.documentElement;
+  function revealAll(){ root.classList.add('no-rv'); }
+
+  root.classList.add('js');
+
+  var reduced = false, capture = false;
+  try { reduced = !!(window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches); } catch(e){}
+  try {
+    capture = navigator.webdriver === true
+      || /bot|crawl|spider|slurp|preview|snapshot|lighthouse|headless|screenshot|embedly|facebookexternalhit|twitterbot/i.test(navigator.userAgent || '')
+      || location.hash === '#static'
+      || /(^|[?&])static=1/.test(location.search);
+  } catch(e){}
+
+  /* Anything that isn't a normal, motion-tolerant browser gets the page fully visible. */
+  if (reduced || capture || !('IntersectionObserver' in window)) { revealAll(); return; }
+
+  try {
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){ e.target.classList.toggle('in', e.isIntersecting); });
     }, {threshold: 0.15, rootMargin: '0px 0px -6% 0px'});
-    document.querySelectorAll('.rv').forEach(function(el){ io.observe(el); });
-  } else {
-    document.querySelectorAll('.rv').forEach(function(el){ el.classList.add('in'); });
-  }
-  var plx = Array.prototype.slice.call(document.querySelectorAll('[data-plx]'));
-  if (plx.length){
-    var busy = false;
-    var run = function(){
-      var vh = innerHeight;
-      plx.forEach(function(el){
-        var r = el.getBoundingClientRect();
-        var p = (r.top + r.height/2 - vh/2) / vh;
-        el.style.transform = 'translateY(' + (p * parseFloat(el.getAttribute('data-plx'))).toFixed(1) + 'px)';
-      });
-      busy = false;
-    };
-    addEventListener('scroll', function(){ if(!busy){ busy = true; requestAnimationFrame(run); } }, {passive:true});
-    run();
-  }
+    doc.querySelectorAll('.rv').forEach(function(el){ io.observe(el); });
+    /* Last resort: if nothing has revealed after 5s, something is wrong — show everything. */
+    setTimeout(function(){ if (!doc.querySelector('.rv.in')) revealAll(); }, 5000);
+  } catch(e) { revealAll(); return; }
+
+  try {
+    var plx = Array.prototype.slice.call(doc.querySelectorAll('[data-plx]'));
+    if (plx.length){
+      var busy = false;
+      var run = function(){
+        var vh = innerHeight;
+        plx.forEach(function(el){
+          var r = el.getBoundingClientRect();
+          var p = (r.top + r.height/2 - vh/2) / vh;
+          el.style.transform = 'translateY(' + (p * parseFloat(el.getAttribute('data-plx'))).toFixed(1) + 'px)';
+        });
+        busy = false;
+      };
+      addEventListener('scroll', function(){ if(!busy){ busy = true; requestAnimationFrame(run); } }, {passive:true});
+      run();
+    }
+  } catch(e){}
 })();
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebSite","name":"The Weekend Pit",
+"url":"https://theweekendpit.com/",
+"description":"A free weekly email for backyard smokers: one technique explained properly, one recipe timed backward from Saturday dinner, and one honest gear review — every Thursday at 7am.",
+"inLanguage":"en-US",
+"publisher":{"@type":"Organization","name":"The Weekend Pit","url":"https://theweekendpit.com/",
+"logo":"https://theweekendpit.com/assets/logo-stamp.svg"}}
 </script>
 <script type="text/javascript" async src="https://subscribe-forms.beehiiv.com/attribution.js"></script>
 </body>
