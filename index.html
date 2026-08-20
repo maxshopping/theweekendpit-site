@@ -341,12 +341,21 @@ footer a{color:#9C938A}
   if (reduced || capture || !('IntersectionObserver' in window)) { revealAll(); return; }
 
   try {
+    var observed = false;
     var io = new IntersectionObserver(function(entries){
+      observed = true;
       entries.forEach(function(e){ e.target.classList.toggle('in', e.isIntersecting); });
     }, {threshold: 0.15, rootMargin: '0px 0px -6% 0px'});
     doc.querySelectorAll('.rv').forEach(function(el){ io.observe(el); });
-    /* Last resort: if nothing has revealed after 5s, something is wrong — show everything. */
-    setTimeout(function(){ if (!doc.querySelector('.rv.in')) revealAll(); }, 5000);
+    /* A working observer always reports back once, straight away, even for off-screen
+       elements. If it never does while the page is on screen, it isn't working — show
+       everything rather than leave the page blank. */
+    var guard = function(){
+      if (doc.visibilityState !== 'visible') return;
+      setTimeout(function(){ if (!observed) revealAll(); }, 4000);
+    };
+    guard();
+    doc.addEventListener('visibilitychange', guard);
   } catch(e) { revealAll(); return; }
 
   try {
