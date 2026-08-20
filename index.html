@@ -23,103 +23,135 @@
   --hair:#DDD4C7;
   --serif:Georgia,"Iowan Old Style","Times New Roman",serif;
   --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  --ease:cubic-bezier(.22,.61,.36,1);
 }
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
 body{margin:0;background:var(--bone);color:var(--char);font-family:var(--sans);
-  font-size:17px;line-height:1.65;-webkit-font-smoothing:antialiased}
-.wrap{max-width:980px;margin:0 auto;padding:0 24px}
+  font-size:18px;line-height:1.65;-webkit-font-smoothing:antialiased}
+body::before{content:'';display:block;height:3px;
+  background:linear-gradient(90deg,var(--ink),var(--brass) 35%,#D9A558 50%,var(--brass) 65%,var(--ink))}
+.wrap{max-width:1200px;margin:0 auto;padding:0 32px}
 a{color:var(--ink)}
 
+/* ---------- scroll reveals ---------- */
+.js .rv{opacity:0;transition:opacity 1s var(--ease),transform 1s var(--ease)}
+.js .rv-l{transform:translateX(-70px)}
+.js .rv-r{transform:translateX(70px)}
+.js .rv-u{transform:translateY(54px)}
+.js .rv-z{transform:scale(.88)}
+.js .rv.in{opacity:1;transform:none}
+.js .d1{transition-delay:.1s}
+.js .d2{transition-delay:.22s}
+.js .d3{transition-delay:.34s}
+@keyframes rise{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:none}}
+.js .li{animation:rise 1s var(--ease) both}
+.js .li2{animation-delay:.18s}
+.js .li3{animation-delay:.36s}
+.js .li4{animation-delay:.54s}
+
 /* ---------- nav ---------- */
-nav{padding:22px 0;border-bottom:1px solid var(--hair)}
+nav{position:sticky;top:0;z-index:60;padding:18px 0;
+  background:rgba(242,236,226,.88);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--hair)}
 nav .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px}
-nav img{width:38px;height:38px;display:block}
-nav .links{font-size:12px;letter-spacing:2.4px;text-transform:uppercase;font-weight:700}
-nav .links a{color:var(--gray);text-decoration:none;margin-left:22px}
+nav img{width:40px;height:40px;display:block}
+nav .links{font-size:12px;letter-spacing:2.6px;text-transform:uppercase;font-weight:700}
+nav .links a{color:var(--gray);text-decoration:none;margin-left:26px;transition:color .25s}
 nav .links a:hover{color:var(--ink)}
 
 /* ---------- hero ---------- */
-header{text-align:center;padding:64px 0 56px}
-header img.mark{width:132px;height:132px;margin-bottom:26px}
-h1{font-family:var(--serif);font-size:clamp(44px,4.6vw,64px);line-height:1.1;margin:0 0 20px;
-  letter-spacing:-.5px;color:var(--char)}
-.lede{font-size:20px;color:#4A4340;max-width:660px;margin:0 auto 34px}
+header{text-align:center;padding:96px 0 84px;min-height:calc(88vh - 80px);
+  display:flex;align-items:center}
+header .wrap{width:100%}
+header img.mark{width:172px;height:172px;margin-bottom:30px}
+h1{font-family:var(--serif);font-size:clamp(46px,5.6vw,88px);line-height:1.06;margin:0 0 26px;
+  letter-spacing:-1px;color:var(--char)}
+.lede{font-size:clamp(18px,1.4vw,22px);color:#4A4340;max-width:740px;margin:0 auto 40px}
 .lede b{color:var(--char)}
 
 /* ---------- signup ---------- */
-.signup{max-width:560px;margin:0 auto}
+.signup{max-width:600px;margin:0 auto}
 .signup .bh{min-height:104px}
 .signup form{display:flex;gap:10px}
-.signup input[type=email]{flex:1;min-width:0;padding:15px 16px;font-size:16px;font-family:var(--sans);
+.signup input[type=email]{flex:1;min-width:0;padding:16px 18px;font-size:16px;font-family:var(--sans);
   border:1.5px solid #C9BCA9;border-radius:3px;background:var(--paper);color:var(--char)}
 .signup input[type=email]:focus{outline:none;border-color:var(--ink)}
-.signup button{padding:15px 24px;font-size:15px;font-weight:700;font-family:var(--sans);
+.signup button{padding:16px 26px;font-size:15px;font-weight:700;font-family:var(--sans);
   background:var(--ink);color:var(--bone);border:0;border-radius:3px;cursor:pointer;white-space:nowrap;
   letter-spacing:.3px}
 .signup button:hover{background:#571F1F}
-.signup a.gobtn{display:inline-block;padding:15px 28px;font-size:15px;font-weight:700;font-family:var(--sans);
-  background:var(--ink);color:var(--bone);border-radius:3px;text-decoration:none;letter-spacing:.3px}
-.signup a.gobtn:hover{background:#571F1F}
-.micro{font-size:13px;color:var(--gray);margin-top:12px}
+.signup a.gobtn{display:inline-block;padding:17px 34px;font-size:16px;font-weight:700;font-family:var(--sans);
+  background:var(--ink);color:var(--bone);border-radius:3px;text-decoration:none;letter-spacing:.3px;
+  transition:background .25s,transform .25s,box-shadow .25s}
+.signup a.gobtn:hover{background:#571F1F;transform:translateY(-2px);box-shadow:0 14px 30px rgba(107,43,43,.28)}
+.micro{font-size:13.5px;color:var(--gray);margin-top:14px}
 
 /* ---------- bonus band ---------- */
-.band{background:var(--char);color:var(--bone);margin-top:64px;padding:44px 0}
-.band .wrap{display:flex;gap:30px;align-items:center}
-.band .sheet{flex:none;width:132px;background:var(--paper);border-radius:2px;overflow:hidden;
-  box-shadow:0 12px 30px rgba(0,0,0,.42);display:block;transition:transform .2s}
-.band .sheet:hover{transform:translateY(-3px)}
-.band .sheet img{width:100%;display:block}
-.band h2{font-family:var(--serif);font-size:26px;margin:0 0 10px;color:var(--bone);font-weight:normal}
-.band p{margin:0;color:#BEB3A6;font-size:15.5px}
-.band .brasstag{color:var(--brass);font-size:11px;letter-spacing:3px;font-weight:800;margin-bottom:10px}
+.band{background:var(--char);color:var(--bone);padding:96px 0;overflow:hidden}
+.band-grid{display:grid;grid-template-columns:300px 1fr;gap:84px;align-items:center}
+.band .sheet{display:block;background:var(--paper);border-radius:3px;overflow:hidden;
+  box-shadow:0 30px 70px rgba(0,0,0,.55)}
+.band .sheet img{width:100%;display:block;will-change:transform}
+.band h2{font-family:var(--serif);font-size:clamp(26px,2.6vw,38px);margin:0 0 14px;color:var(--bone);font-weight:normal}
+.band p{margin:0;color:#BEB3A6;font-size:17px;max-width:640px}
+.band .brasstag{color:var(--brass);font-size:12px;letter-spacing:3.4px;font-weight:800;margin-bottom:14px}
 
 /* ---------- sections ---------- */
-section{padding:60px 0}
-.eyebrow{color:var(--brass);font-size:11px;letter-spacing:3.4px;font-weight:800;
-  text-transform:uppercase;margin-bottom:26px;text-align:center}
-.item{padding:24px 0;border-top:1px solid var(--hair)}
-.item:last-child{border-bottom:1px solid var(--hair)}
-.item h3{font-family:var(--serif);font-size:22px;margin:0 0 6px;color:var(--ink);font-weight:normal}
-.item p{margin:0;color:#4A4340;font-size:16px}
+section{padding:96px 0;overflow:hidden}
+.eyebrow{color:var(--brass);font-size:12px;letter-spacing:3.8px;font-weight:800;
+  text-transform:uppercase;margin-bottom:54px;text-align:center;
+  display:flex;align-items:center;justify-content:center;gap:22px}
+.eyebrow::before,.eyebrow::after{content:'';height:1px;background:var(--hair);flex:0 1 150px}
+.grid{display:grid;grid-template-columns:1fr;column-gap:90px}
+.item{padding:34px 0;border-top:1px solid var(--hair)}
+.item .num{font-size:12px;font-weight:800;letter-spacing:.3em;color:var(--brass);margin-bottom:8px}
+.item h3{font-family:var(--serif);font-size:clamp(24px,2vw,30px);margin:0 0 8px;color:var(--ink);font-weight:normal}
+.item p{margin:0;color:#4A4340;font-size:17px}
 
-.pitch{background:var(--paper);border-top:1px solid var(--hair);border-bottom:1px solid var(--hair)}
-.pitch p{font-size:18px;color:#413B38;max-width:640px;margin:0 auto 18px}
+.pitch{background:var(--paper);border-top:1px solid var(--hair);border-bottom:1px solid var(--hair);text-align:center}
+.pitch p{font-size:clamp(18px,1.5vw,22px);color:#413B38;max-width:780px;margin:0 auto 22px;text-align:left}
 .pitch p:last-child{margin-bottom:0}
-.pitch .kicker{font-family:var(--serif);font-size:28px;color:var(--char);text-align:center;margin-bottom:26px}
+.pitch .kicker{font-family:var(--serif);font-size:clamp(30px,3.2vw,46px);color:var(--char);
+  text-align:center;margin:0 auto 40px}
 
-.closer{text-align:center;padding:66px 0 74px}
-.closer h2{font-family:var(--serif);font-size:34px;margin:0 0 22px;font-weight:normal}
+.closer{text-align:center;padding:130px 0 140px}
+.closer h2{font-family:var(--serif);font-size:clamp(36px,4.4vw,62px);margin:0 0 34px;font-weight:normal}
 
 /* ---------- footer ---------- */
-footer{background:var(--char);color:#9C938A;padding:40px 0;font-size:13px}
-footer .wrap{display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap}
-footer img{width:42px;height:42px;flex:none}
-footer .thin{color:var(--brass);font-style:italic;font-family:var(--serif);font-size:15px}
-footer .disc{max-width:430px;line-height:1.6}
+footer{background:var(--char);color:#9C938A;padding:52px 0;font-size:13.5px}
+footer .wrap{display:flex;justify-content:space-between;align-items:center;gap:28px;flex-wrap:wrap}
+footer img{width:46px;height:46px;flex:none}
+footer .thin{color:var(--brass);font-style:italic;font-family:var(--serif);font-size:16px}
+footer .disc{max-width:520px;line-height:1.6}
 footer a{color:#9C938A}
 
 @media (min-width:900px){
-  header img.mark{width:150px;height:150px}
-  #inside .wrap{display:grid;grid-template-columns:1fr 1fr;column-gap:72px}
-  #inside .eyebrow{grid-column:1 / -1}
+  .grid{grid-template-columns:1fr 1fr}
   .item:last-child{border-bottom:0}
   .item:nth-last-child(-n+2){border-bottom:1px solid var(--hair)}
-  .band .sheet{width:158px}
-  .band h2{font-size:29px}
-  .pitch p{max-width:700px}
-  .closer h2{font-size:40px}
 }
-
+@media (max-width:899px){
+  .band-grid{grid-template-columns:1fr;gap:44px;text-align:center}
+  .band .sheet{max-width:280px;margin:0 auto}
+  .band p{margin:0 auto}
+  .item:last-child{border-bottom:1px solid var(--hair)}
+}
 @media (max-width:640px){
-  h1{font-size:36px}
-  header{padding:44px 0 40px}
-  header img.mark{width:104px;height:104px}
-  .lede{font-size:17px}
+  body{font-size:17px}
+  header{padding:56px 0 48px;min-height:0}
+  header img.mark{width:112px;height:112px}
+  h1{letter-spacing:-.5px}
   .signup form{flex-direction:column}
-  .band .wrap{flex-direction:column;text-align:center}
-  .closer h2{font-size:27px}
+  section{padding:64px 0}
+  .band{padding:64px 0}
+  .closer{padding:80px 0 90px}
   nav .links a{margin-left:14px;font-size:11px}
+  .js .rv-l,.js .rv-r{transform:translateX(0) translateY(40px)}
+}
+@media (prefers-reduced-motion: reduce){
+  .js .rv,.js .li{opacity:1 !important;transform:none !important;animation:none !important;transition:none !important}
+  html{scroll-behavior:auto}
 }
 </style>
 </head>
@@ -134,11 +166,11 @@ footer a{color:#9C938A}
 </div></nav>
 
 <header id="top"><div class="wrap">
-  <img class="mark" src="assets/logo-stamp.svg" alt="The Weekend Pit">
-  <h1>Your Saturday cook,<br>planned by Thursday.</h1>
-  <p class="lede">One free email, every Thursday at 7am: <b>one technique explained properly</b>, <b>one recipe with a timeline that counts backward from Saturday dinner</b>, and <b>one piece of gear that's actually worth it</b> — flaw included.</p>
+  <img class="mark li" src="assets/logo-stamp.svg" alt="The Weekend Pit">
+  <h1 class="li li2">Your Saturday cook,<br>planned by Thursday.</h1>
+  <p class="lede li li3">One free email, every Thursday at 7am: <b>one technique explained properly</b>, <b>one recipe with a timeline that counts backward from Saturday dinner</b>, and <b>one piece of gear that's actually worth it</b> — flaw included.</p>
 
-  <div class="signup" id="signup">
+  <div class="signup li li4" id="signup">
     <div class="bh">
       <script async src="https://subscribe-forms.beehiiv.com/v3/loader.js" data-beehiiv-form="a81f4270-2ff0-4d62-a02a-ae3c8bc15dae"></script>
       <noscript><a href="https://theweekendpit.beehiiv.com/subscribe">Subscribe to The Weekend Pit</a></noscript>
@@ -147,9 +179,9 @@ footer a{color:#9C938A}
   </div>
 </div></header>
 
-<div class="band"><div class="wrap">
-  <a class="sheet" href="assets/temperature-sheet.pdf" target="_blank" rel="noopener"><img src="assets/sheet-thumb.png" alt="The Temperature Sheet"></a>
-  <div>
+<div class="band"><div class="wrap band-grid">
+  <a class="sheet rv rv-l" href="assets/temperature-sheet.pdf" target="_blank" rel="noopener"><img data-plx="30" src="assets/sheet-thumb.png" alt="The Temperature Sheet"></a>
+  <div class="rv rv-r d1">
     <div class="brasstag">FREE WHEN YOU SIGN UP</div>
     <h2>The Temperature Sheet</h2>
     <p>One page, every number that matters at the pit — USDA safety floors and real pull temps for brisket, butt, ribs and birds. Checked against the USDA and the people who cook for a living. Sized for the inside of a cabinet door.</p>
@@ -157,38 +189,44 @@ footer a{color:#9C938A}
 </div></div>
 
 <section id="inside"><div class="wrap">
-  <div class="eyebrow">What's in every issue</div>
+  <div class="eyebrow rv rv-u">What's in every issue</div>
 
-  <div class="item">
-    <h3>The Deep Smoke</h3>
-    <p>One technique, explained properly: the why, the how, and the one mistake everyone makes. No mystique, no gatekeeping.</p>
-  </div>
-  <div class="item">
-    <h3>This Weekend's Cook</h3>
-    <p>One recipe with the timeline built backward from Saturday dinner, so Thursday-you knows exactly what Saturday-you needs.</p>
-  </div>
-  <div class="item">
-    <h3>Pit Find</h3>
-    <p>One piece of gear, honestly reviewed. Sometimes it's $12. Every review names a flaw, because that's what makes the praise worth anything.</p>
-  </div>
-  <div class="item">
-    <h3>Reader's Pit</h3>
-    <p>One reader's cook each week, and the one thing they'd do differently. Your smoker could be famous.</p>
+  <div class="grid">
+    <div class="item rv rv-l">
+      <div class="num">01</div>
+      <h3>The Deep Smoke</h3>
+      <p>One technique, explained properly: the why, the how, and the one mistake everyone makes. No mystique, no gatekeeping.</p>
+    </div>
+    <div class="item rv rv-r d1">
+      <div class="num">02</div>
+      <h3>This Weekend's Cook</h3>
+      <p>One recipe with the timeline built backward from Saturday dinner, so Thursday-you knows exactly what Saturday-you needs.</p>
+    </div>
+    <div class="item rv rv-l d1">
+      <div class="num">03</div>
+      <h3>Pit Find</h3>
+      <p>One piece of gear, honestly reviewed. Sometimes it's $12. Every review names a flaw, because that's what makes the praise worth anything.</p>
+    </div>
+    <div class="item rv rv-r d2">
+      <div class="num">04</div>
+      <h3>Reader's Pit</h3>
+      <p>One reader's cook each week, and the one thing they'd do differently. Your smoker could be famous.</p>
+    </div>
   </div>
 </div></section>
 
 <section class="pitch"><div class="wrap">
-  <p class="kicker">The pitch, straight.</p>
-  <p>You bought the smoker. You've watched the videos — three of them, contradicting each other, at 1.5x speed in the parking lot of the butcher shop.</p>
-  <p>What you actually need is one calm, checked answer to this weekend's question, delivered before you shop.</p>
-  <p>That's the whole product. Every claim verified against the USDA and working pitmasters before it's sent. Every issue useful even if you never buy a thing.</p>
+  <p class="kicker rv rv-z">The pitch, straight.</p>
+  <p class="rv rv-u">You bought the smoker. You've watched the videos — three of them, contradicting each other, at 1.5x speed in the parking lot of the butcher shop.</p>
+  <p class="rv rv-u d1">What you actually need is one calm, checked answer to this weekend's question, delivered before you shop.</p>
+  <p class="rv rv-u d2">That's the whole product. Every claim verified against the USDA and working pitmasters before it's sent. Every issue useful even if you never buy a thing.</p>
 </div></section>
 
 <section class="closer"><div class="wrap">
-  <h2>Thursday, 7am. Bring coffee.</h2>
+  <h2 class="rv rv-z">Thursday, 7am.<br>Bring coffee.</h2>
   <div class="signup">
-    <a class="gobtn" href="#signup">Send me Thursday's issue</a>
-    <p class="micro">Free. One email a week. Unsubscribe anytime.</p>
+    <a class="gobtn rv rv-u d1" href="#signup">Send me Thursday's issue</a>
+    <p class="micro rv rv-u d2">Free. One email a week. Unsubscribe anytime.</p>
   </div>
 </div></section>
 
@@ -198,6 +236,36 @@ footer a{color:#9C938A}
   <span class="thin">Keep the smoke thin.</span>
 </div></footer>
 
+<script>
+(function(){
+  var prm = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
+  document.documentElement.classList.add('js');
+  if (prm) return;
+  if ('IntersectionObserver' in window){
+    var io = new IntersectionObserver(function(es){
+      es.forEach(function(e){ e.target.classList.toggle('in', e.isIntersecting); });
+    }, {threshold: 0.15, rootMargin: '0px 0px -6% 0px'});
+    document.querySelectorAll('.rv').forEach(function(el){ io.observe(el); });
+  } else {
+    document.querySelectorAll('.rv').forEach(function(el){ el.classList.add('in'); });
+  }
+  var plx = Array.prototype.slice.call(document.querySelectorAll('[data-plx]'));
+  if (plx.length){
+    var busy = false;
+    var run = function(){
+      var vh = innerHeight;
+      plx.forEach(function(el){
+        var r = el.getBoundingClientRect();
+        var p = (r.top + r.height/2 - vh/2) / vh;
+        el.style.transform = 'translateY(' + (p * parseFloat(el.getAttribute('data-plx'))).toFixed(1) + 'px)';
+      });
+      busy = false;
+    };
+    addEventListener('scroll', function(){ if(!busy){ busy = true; requestAnimationFrame(run); } }, {passive:true});
+    run();
+  }
+})();
+</script>
 <script type="text/javascript" async src="https://subscribe-forms.beehiiv.com/attribution.js"></script>
 </body>
 </html>
