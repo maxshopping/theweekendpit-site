@@ -1,0 +1,224 @@
+# -*- coding: utf-8 -*-
+"""Shared HTML shell for The Weekend Pit content pages."""
+
+SITE = "https://theweekendpit.com"
+
+CSS = """
+:root{
+  --ink:#6B2B2B; --brass:#B5762E; --char:#1F1C1A; --bone:#F2ECE2; --paper:#FBF8F3;
+  --gray:#6E6660; --hair:#DDD4C7;
+  --serif:Georgia,"Iowan Old Style","Times New Roman",serif;
+  --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bone);color:var(--char);font-family:var(--sans);
+  font-size:18px;line-height:1.65;-webkit-font-smoothing:antialiased}
+body::before{content:'';display:block;height:3px;
+  background:linear-gradient(90deg,var(--ink),var(--brass) 35%,#D9A558 50%,var(--brass) 65%,var(--ink))}
+.wrap{max-width:1000px;margin:0 auto;padding:0 32px}
+.narrow{max-width:760px}
+a{color:var(--ink)}
+
+nav{position:sticky;top:0;z-index:60;padding:18px 0;
+  background:rgba(242,236,226,.88);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--hair)}
+nav .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;max-width:1000px}
+nav img{width:40px;height:40px;display:block}
+nav .links{font-size:12px;letter-spacing:2.4px;text-transform:uppercase;font-weight:700}
+nav .links a{color:var(--gray);text-decoration:none;margin-left:24px;transition:color .25s}
+nav .links a:hover,nav .links a[aria-current]{color:var(--ink)}
+
+.crumb{font-size:12px;letter-spacing:2.2px;text-transform:uppercase;font-weight:700;
+  color:var(--gray);padding:34px 0 0}
+.crumb a{color:var(--gray);text-decoration:none}
+.crumb a:hover{color:var(--ink)}
+
+header.page{padding:26px 0 8px}
+.issueno{color:var(--brass);font-size:12px;letter-spacing:3.6px;font-weight:800;
+  text-transform:uppercase;margin-bottom:18px}
+h1{font-family:var(--serif);font-size:clamp(34px,4.4vw,56px);line-height:1.08;margin:0 0 20px;
+  letter-spacing:-.5px;color:var(--char);font-weight:normal}
+.standfirst{font-size:clamp(18px,1.4vw,21px);color:#4A4340;margin:0 0 26px}
+.byline{font-size:13.5px;color:var(--gray);border-top:1px solid var(--hair);
+  border-bottom:1px solid var(--hair);padding:14px 0;margin:0 0 44px}
+.byline b{color:var(--char)}
+
+.answer{background:var(--paper);border:1px solid var(--hair);border-left:3px solid var(--brass);
+  padding:30px 34px;margin:0 0 54px}
+.answer .tag{color:var(--brass);font-size:11.5px;letter-spacing:3.2px;font-weight:800;
+  text-transform:uppercase;margin-bottom:12px}
+.answer p{margin:0;font-size:19px;color:#332E2B}
+.answer p+p{margin-top:14px;font-size:16.5px;color:#4A4340}
+
+section{padding:0 0 56px}
+.sectag{color:var(--brass);font-size:11.5px;letter-spacing:3.2px;font-weight:800;
+  text-transform:uppercase;margin:0 0 10px}
+h2{font-family:var(--serif);font-size:clamp(25px,2.5vw,34px);margin:0 0 18px;
+  color:var(--ink);font-weight:normal;line-height:1.2}
+h3{font-family:var(--serif);font-size:clamp(20px,1.8vw,24px);margin:34px 0 6px;
+  color:var(--char);font-weight:normal}
+p{color:#413B38}
+.sub{color:var(--gray);font-size:15.5px;margin:0 0 22px}
+em.lead{font-style:normal;font-weight:700;color:var(--char)}
+
+.tablewrap{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:0 0 12px}
+table{border-collapse:collapse;width:100%;min-width:520px;font-size:16px;background:var(--paper)}
+caption{text-align:left;font-size:13px;letter-spacing:1.4px;text-transform:uppercase;
+  font-weight:800;color:var(--brass);padding:0 0 12px}
+th,td{text-align:left;padding:13px 16px;border-bottom:1px solid var(--hair);vertical-align:top}
+thead th{background:var(--char);color:var(--bone);font-size:12px;letter-spacing:1.6px;
+  text-transform:uppercase;border-bottom:0}
+tbody th{font-weight:700;color:var(--char);white-space:nowrap}
+td.temp{font-weight:700;color:var(--ink);white-space:nowrap}
+td.note{color:var(--gray);font-size:15px}
+tbody tr:last-child th,tbody tr:last-child td{border-bottom:0}
+tbody tr.finish th,tbody tr.finish td{background:#F3E9DC;color:var(--ink);font-weight:700}
+.tnote{font-size:14.5px;color:var(--gray);margin:0 0 8px}
+
+.flag{background:#F6EDE2;border-left:3px solid var(--ink);padding:20px 24px;margin:24px 0;
+  font-size:16px;color:#413B38}
+.flag b{color:var(--ink)}
+
+.fence{font-family:var(--serif);font-size:clamp(20px,2vw,26px);line-height:1.35;color:var(--ink);
+  border-left:3px solid var(--brass);padding:4px 0 4px 24px;margin:32px 0 0}
+
+.find{background:var(--paper);border:1px solid var(--hair);padding:30px 34px;margin:0}
+.find .tag{color:var(--brass);font-size:11.5px;letter-spacing:3.2px;font-weight:800;
+  text-transform:uppercase;margin-bottom:12px}
+.find h3{margin:0 0 12px;color:var(--ink)}
+.find p{margin:0 0 12px}
+.find p:last-child{margin-bottom:0}
+.find .disc{font-size:14.5px;color:var(--gray);border-top:1px solid var(--hair);
+  padding-top:14px;margin-top:16px}
+
+.sources{background:var(--paper);border-top:1px solid var(--hair);padding:52px 0 60px;margin-top:20px}
+.sources h2{margin-top:0}
+.sources ul{margin:0;padding:0;list-style:none}
+.sources li{padding:0 0 12px 24px;position:relative;font-size:15.5px;color:#4A4340}
+.sources li::before{content:'';position:absolute;left:2px;top:11px;width:9px;height:1.5px;background:var(--brass)}
+
+.issues{list-style:none;margin:0;padding:0}
+.issues li{border-top:1px solid var(--hair);padding:30px 0}
+.issues li:last-child{border-bottom:1px solid var(--hair)}
+.issues .n{color:var(--brass);font-size:11.5px;letter-spacing:3.2px;font-weight:800;
+  text-transform:uppercase;margin-bottom:8px}
+.issues h2{font-size:clamp(23px,2.2vw,30px);margin:0 0 8px}
+.issues h2 a{text-decoration:none}
+.issues h2 a:hover{text-decoration:underline}
+.issues p{margin:0;color:#4A4340;font-size:16.5px}
+
+.cta{background:var(--char);color:var(--bone);padding:80px 0;text-align:center}
+.cta h2{font-family:var(--serif);color:var(--bone);font-size:clamp(28px,3vw,42px);margin:0 0 14px}
+.cta p.k{color:#BEB3A6;max-width:620px;margin:0 auto 32px;font-size:17px}
+.signup{max-width:520px;margin:0 auto}
+.signup .bh{min-height:134px}
+.signup .bh iframe{width:100%!important;height:134px!important;display:block;border:0}
+.signup .bh noscript a{display:inline-block;padding:17px 34px;font-size:16px;font-weight:700;
+  background:var(--ink);color:var(--bone);border-radius:3px;text-decoration:none}
+.micro{font-size:13.5px;color:#8E8377;margin-top:14px}
+
+footer{background:var(--char);color:#9C938A;padding:52px 0;font-size:13.5px;border-top:1px solid #33302D}
+footer .wrap{display:flex;justify-content:space-between;align-items:center;gap:28px;flex-wrap:wrap}
+footer img{width:46px;height:46px;flex:none}
+footer .thin{color:var(--brass);font-style:italic;font-family:var(--serif);font-size:16px}
+footer .disc{max-width:520px;line-height:1.6}
+footer a{color:#9C938A}
+
+@media (max-width:640px){
+  body{font-size:17px}
+  .wrap{padding:0 22px}
+  .answer,.find{padding:24px 22px}
+  .flag{padding:18px 20px}
+  .fence{padding-left:18px}
+  th,td{padding:11px 13px}
+  nav .links a{margin-left:13px;font-size:11px}
+}
+@media print{nav{position:static}.cta{display:none}}
+@media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}}
+"""
+
+BEEHIIV_FORM = "a81f4270-2ff0-4d62-a02a-ae3c8bc15dae"
+
+def nav(depth, current=None):
+    up = "../" * depth
+    def cls(k):
+        return ' aria-current="page"' if current == k else ''
+    return f"""<nav><div class="wrap">
+  <a href="/"><img src="{up}assets/micro.svg" alt="The Weekend Pit"></a>
+  <div class="links">
+    <a href="/archive/"{cls('archive')}>Archive</a>
+    <a href="/temperatures/"{cls('temps')}>Temperatures</a>
+    <a href="#subscribe">Subscribe</a>
+  </div>
+</div></nav>"""
+
+def cta(heading, kicker):
+    return f"""<div class="cta" id="subscribe"><div class="wrap">
+  <h2>{heading}</h2>
+  <p class="k">{kicker}</p>
+  <div class="signup">
+    <div class="bh">
+      <script async src="https://subscribe-forms.beehiiv.com/v3/loader.js" data-beehiiv-form="{BEEHIIV_FORM}"></script>
+      <noscript><a href="https://theweekendpit.beehiiv.com/subscribe">Subscribe to The Weekend Pit</a></noscript>
+    </div>
+    <p class="micro">Free. One email a week. Unsubscribe anytime &mdash; no hard feelings at the fence line.</p>
+  </div>
+</div></div>"""
+
+def footer(depth):
+    up = "../" * depth
+    return f"""<footer><div class="wrap">
+  <img src="{up}assets/micro-dark.svg" alt="The Weekend Pit">
+  <p class="disc">The Weekend Pit is reader-supported. Some gear links are affiliate links, always labeled &mdash; if you buy through them we earn a small commission at no extra cost to you. We only recommend gear we'd tell a friend to buy.</p>
+  <span class="thin">Keep the smoke thin.</span>
+</div></footer>"""
+
+def page(*, path, depth, title, description, og_type, body, jsonld, current=None):
+    up = "../" * depth
+    url = f"{SITE}{path}"
+    return f"""<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{title}</title>
+<meta name="description" content="{description}">
+<link rel="icon" href="{up}assets/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="{up}assets/favicon-32.png" sizes="32x32">
+<link rel="apple-touch-icon" href="{up}assets/favicon-180.png">
+<link rel="canonical" href="{url}">
+<meta name="theme-color" content="#6B2B2B">
+<meta property="og:site_name" content="The Weekend Pit">
+<meta property="og:title" content="{title}">
+<meta property="og:description" content="{description}">
+<meta property="og:type" content="{og_type}">
+<meta property="og:url" content="{url}">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="{SITE}/assets/og-image.png">
+<meta property="og:image:type" content="image/png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="The Weekend Pit &mdash; your Saturday cook, planned by Thursday.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="{title}">
+<meta name="twitter:description" content="{description}">
+<meta name="twitter:image" content="{SITE}/assets/og-image.png">
+<meta name="twitter:image:alt" content="The Weekend Pit &mdash; your Saturday cook, planned by Thursday.">
+<style>{CSS}</style>
+</head>
+<body>
+
+{nav(depth, current)}
+
+{body}
+
+{footer(depth)}
+
+<script type="application/ld+json">
+{jsonld}
+</script>
+<script type="text/javascript" async src="https://subscribe-forms.beehiiv.com/attribution.js"></script>
+</body>
+</html>
+"""
