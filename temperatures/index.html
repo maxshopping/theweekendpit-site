@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Smoking Temperature Chart — Safe Temps and Pull Temps for Every Cut</title>
+<meta name="description" content="Every temperature that matters at the smoker: USDA safe minimums plus the real pull temps for brisket, pork butt, ribs, chicken and turkey. Verified against the USDA and cross-checked against two credible sources each.">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="../assets/favicon-32.png" sizes="32x32">
+<link rel="apple-touch-icon" href="../assets/favicon-180.png">
+<link rel="canonical" href="https://theweekendpit.com/temperatures/">
+<meta name="theme-color" content="#6B2B2B">
+<meta property="og:site_name" content="The Weekend Pit">
+<meta property="og:title" content="Smoking Temperature Chart — Safe Temps and Pull Temps for Every Cut">
+<meta property="og:description" content="USDA safe minimums plus the real pull temps for brisket, pork butt, ribs, chicken and turkey — every number checked against two credible sources, and the sources named.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://theweekendpit.com/temperatures/">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://theweekendpit.com/assets/og-image.png">
+<meta property="og:image:type" content="image/png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="The Weekend Pit — your Saturday cook, planned by Thursday.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Smoking Temperature Chart — Safe Temps and Pull Temps for Every Cut">
+<meta name="twitter:description" content="USDA safe minimums plus the real pull temps for brisket, pork butt, ribs, chicken and turkey — every number cross-checked and the sources named.">
+<meta name="twitter:image" content="https://theweekendpit.com/assets/og-image.png">
+<meta name="twitter:image:alt" content="The Weekend Pit — your Saturday cook, planned by Thursday.">
+<style>
+:root{
+  --ink:#6B2B2B; --brass:#B5762E; --char:#1F1C1A; --bone:#F2ECE2; --paper:#FBF8F3;
+  --gray:#6E6660; --hair:#DDD4C7;
+  --serif:Georgia,"Iowan Old Style","Times New Roman",serif;
+  --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bone);color:var(--char);font-family:var(--sans);
+  font-size:18px;line-height:1.65;-webkit-font-smoothing:antialiased}
+body::before{content:'';display:block;height:3px;
+  background:linear-gradient(90deg,var(--ink),var(--brass) 35%,#D9A558 50%,var(--brass) 65%,var(--ink))}
+.wrap{max-width:1000px;margin:0 auto;padding:0 32px}
+a{color:var(--ink)}
+
+nav{position:sticky;top:0;z-index:60;padding:18px 0;
+  background:rgba(242,236,226,.88);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--hair)}
+nav .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px}
+nav img{width:40px;height:40px;display:block}
+nav .links{font-size:12px;letter-spacing:2.6px;text-transform:uppercase;font-weight:700}
+nav .links a{color:var(--gray);text-decoration:none;margin-left:26px;transition:color .25s}
+nav .links a:hover{color:var(--ink)}
+
+.crumb{font-size:12px;letter-spacing:2.2px;text-transform:uppercase;font-weight:700;
+  color:var(--gray);padding:34px 0 0}
+.crumb a{color:var(--gray);text-decoration:none}
+.crumb a:hover{color:var(--ink)}
+
+header.page{padding:26px 0 8px}
+h1{font-family:var(--serif);font-size:clamp(34px,4.4vw,58px);line-height:1.08;margin:0 0 20px;
+  letter-spacing:-.5px;color:var(--char);font-weight:normal;max-width:860px}
+.standfirst{font-size:clamp(18px,1.4vw,21px);color:#4A4340;max-width:780px;margin:0 0 26px}
+.byline{font-size:13.5px;color:var(--gray);border-top:1px solid var(--hair);
+  border-bottom:1px solid var(--hair);padding:14px 0;margin:0 0 44px}
+.byline b{color:var(--char)}
+
+.answer{background:var(--paper);border:1px solid var(--hair);border-left:3px solid var(--brass);
+  padding:30px 34px;margin:0 0 54px}
+.answer .tag{color:var(--brass);font-size:11.5px;letter-spacing:3.2px;font-weight:800;
+  text-transform:uppercase;margin-bottom:12px}
+.answer p{margin:0;font-size:19px;color:#332E2B}
+.answer p+p{margin-top:14px;font-size:16.5px;color:#4A4340}
+
+section{padding:0 0 60px}
+h2{font-family:var(--serif);font-size:clamp(25px,2.5vw,35px);margin:46px 0 8px;
+  color:var(--ink);font-weight:normal;line-height:1.2}
+h2:first-child{margin-top:0}
+h3{font-family:var(--serif);font-size:clamp(20px,1.8vw,25px);margin:34px 0 6px;
+  color:var(--char);font-weight:normal}
+p{color:#413B38}
+.sub{color:var(--gray);font-size:15.5px;margin:0 0 22px}
+
+.tablewrap{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:0 0 12px}
+table{border-collapse:collapse;width:100%;min-width:560px;font-size:16px;background:var(--paper)}
+caption{text-align:left;font-size:13px;letter-spacing:1.4px;text-transform:uppercase;
+  font-weight:800;color:var(--brass);padding:0 0 12px}
+th,td{text-align:left;padding:13px 16px;border-bottom:1px solid var(--hair);vertical-align:top}
+thead th{background:var(--char);color:var(--bone);font-size:12px;letter-spacing:1.6px;
+  text-transform:uppercase;border-bottom:0}
+tbody th{font-weight:700;color:var(--char);white-space:nowrap}
+td.temp{font-weight:700;color:var(--ink);white-space:nowrap}
+td.note{color:var(--gray);font-size:15px}
+tbody tr:last-child th,tbody tr:last-child td{border-bottom:0}
+.tnote{font-size:14.5px;color:var(--gray);margin:0 0 8px}
+
+.flag{background:#F6EDE2;border-left:3px solid var(--ink);padding:20px 24px;margin:24px 0;
+  font-size:16px;color:#413B38}
+.flag b{color:var(--ink)}
+
+.faq h3{margin-top:36px}
+.faq p{margin:0 0 10px}
+
+.sources{background:var(--paper);border-top:1px solid var(--hair);padding:52px 0 60px;margin-top:20px}
+.sources h2{margin-top:0}
+.sources ul{margin:0;padding:0;list-style:none}
+.sources li{padding:0 0 12px 24px;position:relative;font-size:15.5px;color:#4A4340}
+.sources li::before{content:'';position:absolute;left:2px;top:11px;width:9px;height:1.5px;background:var(--brass)}
+
+.cta{background:var(--char);color:var(--bone);padding:80px 0;text-align:center}
+.cta h2{font-family:var(--serif);color:var(--bone);font-size:clamp(28px,3vw,44px);margin:0 0 14px}
+.cta p.k{color:#BEB3A6;max-width:620px;margin:0 auto 32px;font-size:17px}
+.signup{max-width:520px;margin:0 auto}
+.signup .bh{min-height:134px}
+.signup .bh iframe{width:100%!important;height:134px!important;display:block;border:0}
+.signup .bh noscript a{display:inline-block;padding:17px 34px;font-size:16px;font-weight:700;
+  background:var(--ink);color:var(--bone);border-radius:3px;text-decoration:none}
+.micro{font-size:13.5px;color:#8E8377;margin-top:14px}
+
+footer{background:var(--char);color:#9C938A;padding:52px 0;font-size:13.5px;border-top:1px solid #33302D}
+footer .wrap{display:flex;justify-content:space-between;align-items:center;gap:28px;flex-wrap:wrap}
+footer img{width:46px;height:46px;flex:none}
+footer .thin{color:var(--brass);font-style:italic;font-family:var(--serif);font-size:16px}
+footer .disc{max-width:520px;line-height:1.6}
+footer a{color:#9C938A}
+
+@media (max-width:640px){
+  body{font-size:17px}
+  .wrap{padding:0 22px}
+  .answer{padding:24px 22px}
+  .flag{padding:18px 20px}
+  th,td{padding:11px 13px}
+  nav .links a{margin-left:14px;font-size:11px}
+}
+@media print{nav{position:static}.cta{display:none}}
+@media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+
+<nav><div class="wrap">
+  <a href="/"><img src="../assets/micro.svg" alt="The Weekend Pit"></a>
+  <div class="links">
+    <a href="/#inside">What's inside</a>
+    <a href="#subscribe">Subscribe</a>
+  </div>
+</div></nav>
+
+<div class="wrap">
+  <p class="crumb"><a href="/">The Weekend Pit</a> &nbsp;/&nbsp; Temperatures</p>
+
+  <header class="page">
+    <h1>Smoking temperature chart: safe temps and pull temps for every cut</h1>
+    <p class="standfirst">Two different numbers matter at the pit, and mixing them up is where most weekend cooks go wrong. Here is both — the USDA safety floor, and the temperature you actually pull at.</p>
+    <p class="byline">Published by <b>The Weekend Pit</b> · Last verified <b>14 August 2026</b> · Every number below is checked against USDA guidance and cross-checked against at least two credible sources, all named at the bottom of this page.</p>
+  </header>
+</div>
+
+<div class="wrap">
+  <div class="answer">
+    <div class="tag">The short answer</div>
+    <p>Poultry is safe at <b>165°F</b>, ground meat at <b>160°F</b>, and whole cuts of beef, pork and lamb at <b>145°F</b> with a 3-minute rest. But tough cuts like brisket and pork butt are pulled far higher — <b>195–205°F</b> — not for safety, but because that is where collagen melts into gelatin and the meat goes tender.</p>
+    <p>Safety is a floor you must clear. Tenderness is a target you cook toward. Ribs and brisket pass the safety line hours before they are ready to eat.</p>
+  </div>
+</div>
+
+<div class="wrap">
+
+<section>
+  <h2>USDA safe minimum internal temperatures</h2>
+  <p class="sub">These are food-safety floors, not doneness recommendations. Measure at the thickest part, away from bone.</p>
+  <div class="tablewrap">
+  <table>
+    <caption>USDA safe minimums</caption>
+    <thead><tr><th scope="col">Food</th><th scope="col">Minimum internal temperature</th></tr></thead>
+    <tbody>
+      <tr><th scope="row">All poultry (whole, parts, ground)</th><td class="temp">165°F</td></tr>
+      <tr><th scope="row">Ground beef &amp; pork</th><td class="temp">160°F</td></tr>
+      <tr><th scope="row">Whole cuts — beef, pork, lamb</th><td class="temp">145°F + 3-minute rest</td></tr>
+      <tr><th scope="row">Fish</th><td class="temp">145°F</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <p class="tnote">Source: foodsafety.gov safe minimum internal temperature chart, fetched 14 August 2026.</p>
+</section>
+
+<section>
+  <h2>Pull temperatures for smoking, cut by cut</h2>
+  <p class="sub">Pit temp is what you set the smoker to. Pull temp is the internal reading where the meat comes off. Both are cross-checked against AmazingRibs, SmokedBBQSource and ThermoWorks.</p>
+  <div class="tablewrap">
+  <table>
+    <caption>Pit temps and pull temps</caption>
+    <thead><tr><th scope="col">Cut</th><th scope="col">Pit temp</th><th scope="col">Pull at</th><th scope="col">What to know</th></tr></thead>
+    <tbody>
+      <tr><th scope="row">Brisket</th><td class="temp">225–250°F</td><td class="temp">195–205°F</td><td class="note">About 203°F is the sweet spot, but probe-tender is the real test — the probe should slide in like warm butter.</td></tr>
+      <tr><th scope="row">Pork butt (pulled)</th><td class="temp">225–250°F</td><td class="temp">195–205°F</td><td class="note">The bone should wiggle free with almost no resistance.</td></tr>
+      <tr><th scope="row">Pork ribs</th><td class="temp">225–250°F</td><td class="temp">180–203°F</td><td class="note">Sources genuinely disagree here — see the note below. Judge by bend and bite; probe between the bones.</td></tr>
+      <tr><th scope="row">Chicken, white meat</th><td class="temp">275–350°F</td><td class="temp">165°F</td><td class="note">The USDA floor is also the target. At 165°F white meat is still moist.</td></tr>
+      <tr><th scope="row">Chicken/turkey, dark meat</th><td class="temp">275–350°F</td><td class="temp">175–185°F</td><td class="note">Deliberately above the minimum — dark meat has collagen that needs the extra heat to soften.</td></tr>
+      <tr><th scope="row">Whole turkey</th><td class="temp">275–350°F</td><td class="temp">165°F breast / 175°F thigh</td><td class="note">Two probes, two targets. Some cooks pull the whole bird at 170°F.</td></tr>
+      <tr><th scope="row">Pork loin &amp; chops</th><td class="temp">225–250°F</td><td class="temp">145°F + 3-min rest</td><td class="note">Matches the USDA whole-cut minimum. A little pink at 145°F is safe.</td></tr>
+      <tr><th scope="row">Tri-tip</th><td class="temp">225–250°F</td><td class="temp">130–140°F</td><td class="note">This is the chef's medium-rare range and it sits <em>below</em> the USDA 145°F whole-cut minimum. See the note below.</td></tr>
+      <tr><th scope="row">Fresh sausage</th><td class="temp">225–250°F</td><td class="temp">160°F</td><td class="note">Matches the USDA ground-meat floor.</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <div class="flag">
+    <b>About tri-tip.</b> The 130–140°F range is standard restaurant practice for medium-rare, and it is what most barbecue sources will tell you. It is also below the USDA's 145°F minimum for whole cuts of beef. We print both numbers rather than pick one for you: the risk on an intact whole muscle is low because bacteria live on the surface and the sear handles that, but the official guidance is 145°F and you should know you are choosing to depart from it.
+  </div>
+
+  <div class="flag">
+    <b>About ribs.</b> ThermoWorks says 180–195°F held for 30 minutes. AmazingRibs says around 203°F. SmokedBBQSource says 180–185°F. That is not an error in one of them — ribs vary enormously by style, cut and how much fat is in them, which is exactly why the bend test outlives every number. Pick up the rack with tongs a third of the way down: when the surface cracks and the rack bends to about a 90-degree droop, they are done.
+  </div>
+</section>
+
+<section>
+  <h2>Carryover: the meat keeps cooking after you pull it</h2>
+  <p>Big cuts continue climbing roughly 5°F or more after they leave the heat, as the hot exterior equalizes inward. That matters most on the cuts with narrow windows — poultry and pork loin — where 5°F is the difference between juicy and chalky. It matters least on brisket and butt, where you are already deep into a wide range.</p>
+  <p>Some professional cooks ride carryover deliberately, pulling chicken breast at 158°F and letting it drift up to safe. We print 165°F, because a number that reads as "pull poultry under temp" is a number that gets copied without the context around it.</p>
+</section>
+
+<section class="faq">
+  <h2>Common questions</h2>
+
+  <h3>What temperature is brisket done at?</h3>
+  <p>Pull brisket between 195°F and 205°F internal, with about 203°F as the usual sweet spot. Temperature is a guide, not the verdict — the real test is probe-tender, when a thermometer probe slides into the flat with no resistance. Collagen needs both heat and time to melt into gelatin, so two briskets can finish at different numbers.</p>
+
+  <h3>Why did my brisket stop at 150°F?</h3>
+  <p>That is the stall, and nothing is wrong. Around 150°F, moisture pushed to the surface of the meat evaporates fast enough that the cooling exactly cancels the heat of the pit — the same physics that keeps you from overheating on a July run. Physicist Greg Blonder tested this directly; the older explanations about melting fat or dissolving collagen turned out to be wrong. It can last hours. Wait it out, or wrap to cut the evaporation.</p>
+
+  <h3>Is pork still safe if it is pink at 145°F?</h3>
+  <p>Yes. The USDA lowered the whole-cut pork minimum to 145°F plus a 3-minute rest, and pork cooked to that temperature is frequently pink in the center. The colour comes from myoglobin, not from doneness. The old 160°F habit is why a generation of pork chops tasted like a wallet.</p>
+
+  <h3>What temperature should I smoke chicken at?</h3>
+  <p>Higher than you smoke everything else — 275–350°F. At the classic 225–250°F, the fat under the skin never renders and moisture stays trapped, which is exactly how you get rubbery skin. Skin needs real heat, not more time. For a spatchcocked bird, 300°F for roughly an hour and a half on a 4–5 lb chicken works well.</p>
+
+  <h3>What is the difference between safe temperature and pull temperature?</h3>
+  <p>Safe temperature is the point where the meat is no longer a food-safety risk — a floor set by the USDA. Pull temperature is where the meat tastes best, which for tough, collagen-heavy cuts is 40 to 60 degrees higher. A pork butt is safe long before it is good. A pork chop is safe and good at nearly the same moment. That gap is the whole craft of barbecue.</p>
+
+  <h3>Do I need an instant-read thermometer?</h3>
+  <p>Yes, more than you need almost any other piece of gear. Every number on this page is meaningless without a way to read it, and the dial thermometer built into a smoker lid is usually measuring air several inches from where the meat actually is, often off by 25°F or more. A leave-in probe for the meat and a fast instant-read for spot checks is the setup most people end up at.</p>
+</section>
+
+<section>
+  <h2>Print it for the cabinet door</h2>
+  <p>The same numbers, laid out on one page and sized to tape inside a cabinet door or the lid of your pit. Free, no signup needed.</p>
+  <p><a href="/assets/temperature-sheet.pdf"><b>Download the Temperature Sheet (PDF) →</b></a></p>
+</section>
+
+</div>
+
+<div class="sources"><div class="wrap">
+  <h2>Sources</h2>
+  <p class="sub">Every temperature above traces to at least one of these, and every pitmaster target to at least two. Re-verified 14 August 2026.</p>
+  <ul>
+    <li><a href="https://www.foodsafety.gov/food-safety-charts/safe-minimum-internal-temperatures" rel="nofollow">foodsafety.gov — Safe Minimum Internal Temperatures</a> (USDA)</li>
+    <li><a href="https://amazingribs.com/technique-and-science/more-cooking-science/safe-serving-temperatures/" rel="nofollow">AmazingRibs — Food Temperature Guide</a></li>
+    <li><a href="https://www.smokedbbqsource.com/smoking-times-temperatures/" rel="nofollow">SmokedBBQSource — Smoking Times &amp; Temperatures</a></li>
+    <li><a href="https://www.thermoworks.com/blogs/thermoblog/ribs" rel="nofollow">ThermoWorks — Smoked Ribs Guide</a></li>
+    <li><a href="https://blog.thermoworks.com/spatchcock-chicken-alabama-style/" rel="nofollow">ThermoWorks — Smoked Spatchcock Chicken, Alabama Style</a></li>
+    <li><a href="https://blog.thermoworks.com/smoked-chicken-wings/" rel="nofollow">ThermoWorks — Smoked Chicken Wings: a Thermal Trick for Crisp Skin</a></li>
+  </ul>
+</div></div>
+
+<div class="cta" id="subscribe"><div class="wrap">
+  <h2>One email. One weekend. One great cook.</h2>
+  <p class="k">Every Thursday at 7am: a technique explained properly, a recipe timed backward from Saturday dinner, and one piece of gear with its flaw named. Free.</p>
+  <div class="signup">
+    <div class="bh">
+      <script async src="https://subscribe-forms.beehiiv.com/v3/loader.js" data-beehiiv-form="a81f4270-2ff0-4d62-a02a-ae3c8bc15dae"></script>
+      <noscript><a href="https://theweekendpit.beehiiv.com/subscribe">Subscribe to The Weekend Pit</a></noscript>
+    </div>
+    <p class="micro">Free. One email a week. Unsubscribe anytime — no hard feelings at the fence line.</p>
+  </div>
+</div></div>
+
+<footer><div class="wrap">
+  <img src="../assets/micro-dark.svg" alt="The Weekend Pit">
+  <p class="disc">The Weekend Pit is reader-supported. Some gear links are affiliate links, always labeled — if you buy through them we earn a small commission at no extra cost to you. We only recommend gear we'd tell a friend to buy.</p>
+  <span class="thin">Keep the smoke thin.</span>
+</div></footer>
+
+<script type="application/ld+json">
+{"@context":"https://schema.org","@graph":[
+{"@type":"BreadcrumbList","itemListElement":[
+ {"@type":"ListItem","position":1,"name":"The Weekend Pit","item":"https://theweekendpit.com/"},
+ {"@type":"ListItem","position":2,"name":"Temperatures","item":"https://theweekendpit.com/temperatures/"}]},
+{"@type":"Article","headline":"Smoking temperature chart: safe temps and pull temps for every cut",
+ "description":"USDA safe minimums plus the real pull temps for brisket, pork butt, ribs, chicken and turkey, with the sources named.",
+ "mainEntityOfPage":{"@type":"WebPage","@id":"https://theweekendpit.com/temperatures/"},
+ "inLanguage":"en-US","datePublished":"2026-08-21","dateModified":"2026-08-21",
+ "image":"https://theweekendpit.com/assets/og-image.png",
+ "author":{"@type":"Organization","name":"The Weekend Pit","url":"https://theweekendpit.com/"},
+ "publisher":{"@type":"Organization","name":"The Weekend Pit","url":"https://theweekendpit.com/",
+  "logo":{"@type":"ImageObject","url":"https://theweekendpit.com/assets/logo-stamp.svg"}}},
+{"@type":"FAQPage","mainEntity":[
+ {"@type":"Question","name":"What temperature is brisket done at?","acceptedAnswer":{"@type":"Answer","text":"Pull brisket between 195°F and 205°F internal, with about 203°F as the usual sweet spot. Temperature is a guide, not the verdict — the real test is probe-tender, when a thermometer probe slides into the flat with no resistance."}},
+ {"@type":"Question","name":"Why did my brisket stop at 150°F?","acceptedAnswer":{"@type":"Answer","text":"That is the stall. Around 150°F, moisture pushed to the surface of the meat evaporates fast enough that the cooling exactly cancels the heat of the pit — evaporative cooling. It can last hours. Wait it out, or wrap to cut the evaporation."}},
+ {"@type":"Question","name":"Is pork still safe if it is pink at 145°F?","acceptedAnswer":{"@type":"Answer","text":"Yes. The USDA whole-cut pork minimum is 145°F plus a 3-minute rest, and pork cooked to that temperature is frequently pink in the center. The colour comes from myoglobin, not from doneness."}},
+ {"@type":"Question","name":"What temperature should I smoke chicken at?","acceptedAnswer":{"@type":"Answer","text":"275–350°F, higher than most barbecue. At 225–250°F the fat under the skin never renders and moisture stays trapped, which produces rubbery skin. For a spatchcocked bird, 300°F for about an hour and a half on a 4–5 lb chicken."}},
+ {"@type":"Question","name":"What is the difference between safe temperature and pull temperature?","acceptedAnswer":{"@type":"Answer","text":"Safe temperature is the USDA floor where meat is no longer a food-safety risk. Pull temperature is where it tastes best, which for tough collagen-heavy cuts is 40 to 60 degrees higher. A pork butt is safe long before it is good."}},
+ {"@type":"Question","name":"Do I need an instant-read thermometer?","acceptedAnswer":{"@type":"Answer","text":"Yes. The dial thermometer built into a smoker lid measures air several inches from the meat and is often off by 25°F or more. A leave-in probe for the meat plus a fast instant-read for spot checks is the common setup."}}]}
+]}
+</script>
+<script type="text/javascript" async src="https://subscribe-forms.beehiiv.com/attribution.js"></script>
+</body>
+</html>
