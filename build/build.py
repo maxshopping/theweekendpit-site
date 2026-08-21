@@ -3,7 +3,7 @@
 import json, os, sys, html
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from shell import page, cta, SITE
-from issues import ISSUES, PUB_DATE
+from issues import ISSUES, PUB_DATE, CORRECTIONS
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -241,6 +241,7 @@ def about_page():
   <div class="sectag">Corrections</div>
   <h2>When we get it wrong</h2>
   <p>We will. A page that has never been corrected is either very young or not being checked. If you find a number here that&rsquo;s wrong, reply to any issue and tell us &mdash; the correction goes in the next email <em>and</em> gets fixed on the page it came from, with the date it changed. Silently editing a mistake away is its own small dishonesty.</p>
+  <p>Every correction we have made is logged, in public, on the <a href="/corrections/">corrections page</a> &mdash; including the fact that there aren&rsquo;t any yet.</p>
 </section>
 
 <section class="faq">
@@ -299,6 +300,109 @@ def about_page():
                       description="A free weekly email for backyard smokers. Every temperature checked against USDA guidance, every technique cross-checked against two named sources, a flaw named in every gear review, and no invented testimonials.",
                       og_type="website", body=body, jsonld=ld)
 
+
+def corrections_page():
+    path = "/corrections/"
+
+    if CORRECTIONS:
+        rows = "\n".join(f"""    <li>
+      <div class="n">{c['date']} &middot; {c['where']}</div>
+      <h2>{c['what']}</h2>
+      <p><b>Now reads:</b> {c['now']}</p>
+      <p class="sub">Found via {c['how']}.{(' <a href="' + c['url'] + '">See the page</a>.') if c.get('url') else ''}</p>
+    </li>""" for c in CORRECTIONS)
+        log = f'  <ul class="issues">\n{rows}\n  </ul>'
+        count = f"{len(CORRECTIONS)} correction{'s' if len(CORRECTIONS) != 1 else ''} so far."
+    else:
+        log = """  <div class="flag"><b>Nothing yet.</b> No correction has been needed since the first issue was written. That is not a boast &mdash; it mostly means this newsletter is very young. The page exists so that when something does need fixing there is an obvious place for it, and so you can check whether we actually do what we say.</div>"""
+        count = "No corrections yet."
+
+    body = f"""<div class="wrap narrow">
+  <p class="crumb"><a href="/">The Weekend Pit</a> &nbsp;/&nbsp; Corrections</p>
+
+  <header class="page">
+    <div class="issueno">Corrections</div>
+    <h1>A page that has never been corrected is either very young or not being checked.</h1>
+    <p class="standfirst">This one is very young. Here is every substantive correction we have made, what was wrong, and how we found out &mdash; newest first, so you can judge the habit rather than the promise.</p>
+    <p class="byline">{count} Found something wrong? Reply to any issue and tell us.</p>
+  </header>
+
+  <div class="answer">
+    <div class="tag">The short answer</div>
+    <p>If we print something wrong, the correction goes <b>in the next email</b> and <b>on the page it came from</b>, dated, and it gets logged here.</p>
+    <p>We don't quietly edit mistakes away. A number that changed without a note is indistinguishable from a number that was never wrong, and that difference is the whole point of this newsletter.</p>
+  </div>
+</div>
+
+<div class="wrap narrow">
+
+<section>
+  <div class="sectag">The log</div>
+  <h2>What we have gotten wrong</h2>
+{log}
+</section>
+
+<section>
+  <div class="sectag">The policy</div>
+  <h2>What counts, and what happens</h2>
+  <p><b>What gets logged here:</b> a temperature, a time, a price, a source, an attribution, or any claim a reader could have cooked by. If it could have changed what you did on Saturday, it belongs on this page.</p>
+  <p><b>What gets fixed silently:</b> typos, broken links, formatting, and clumsy sentences. Logging those would bury the corrections that matter, which is its own way of hiding them.</p>
+  <p><b>Where it goes:</b> the page itself is corrected and carries the date it changed; the next Thursday email says what changed and why; the entry lands here. Three places, because a correction only one person sees isn't a correction.</p>
+  <p><b>How fast:</b> the page gets fixed as soon as we have checked it. The email correction goes out in the next issue &mdash; we don't send a separate email for it unless a number could hurt someone, in which case we do, immediately.</p>
+</section>
+
+<section>
+  <div class="sectag">Telling us</div>
+  <h2>How to report something</h2>
+  <p>Reply to any issue of the newsletter. That reply goes to a real inbox that a person reads.</p>
+  <p>You don't need to be certain, and you don't need to be polite about it. &ldquo;Your rib temp doesn't match ThermoWorks&rdquo; is a complete and useful message. If you have a source, send it &mdash; that is how we check, and it is how this gets settled quickly.</p>
+  <p>If we look into it and decide the original was right, we'll tell you that too, and say why.</p>
+</section>
+
+<section class="faq">
+  <h2>Common questions</h2>
+
+  <h3>Why publish a corrections page at all?</h3>
+  <p>Because a site with no corrections page is making an implicit claim &mdash; that it has never been wrong &mdash; that almost certainly isn't true. Publishing the mistakes is the only way the accuracy claims on the rest of the site mean anything. It also makes it costly for us to be sloppy, which is the actual mechanism.</p>
+
+  <h3>Do you change old issues after they are sent?</h3>
+  <p>The email that landed in your inbox can't be recalled, so the correction runs in the next one. The web version of the issue does get fixed, and it carries the date it changed so the two are never silently out of step.</p>
+
+  <h3>What if a mistake could make someone sick?</h3>
+  <p>Then it isn't waiting for Thursday. Any error in a food-safety number &mdash; a USDA minimum, a holding temperature, a poultry pull temp &mdash; gets corrected on the page immediately and sent as its own email. That is the one case where we will interrupt you.</p>
+</section>
+
+</div>
+
+""" + cta("Thursday, 7am. Bring coffee.",
+          "One free email a week: a technique explained properly, a recipe timed backward from Saturday dinner, and one piece of gear with its flaw named.")
+
+    ld = json.dumps({
+      "@context": "https://schema.org",
+      "@graph": [
+        {"@type": "BreadcrumbList", "itemListElement": [
+          {"@type": "ListItem", "position": 1, "name": "The Weekend Pit", "item": f"{SITE}/"},
+          {"@type": "ListItem", "position": 2, "name": "Corrections", "item": f"{SITE}/corrections/"}]},
+        {"@type": "WebPage",
+         "name": "Corrections \u2014 The Weekend Pit",
+         "description": "Every substantive correction The Weekend Pit has made, what was wrong, and how we found out. Corrections run in the next email and on the page itself, dated.",
+         "url": f"{SITE}/corrections/", "inLanguage": "en-US",
+         "dateModified": PUB_DATE,
+         "isPartOf": {"@type": "WebSite", "name": "The Weekend Pit", "url": f"{SITE}/"},
+         "publisher": {"@type": "Organization", "name": "The Weekend Pit", "url": f"{SITE}/",
+                       "correctionsPolicy": f"{SITE}/corrections/",
+                       "publishingPrinciples": f"{SITE}/about/"}},
+        {"@type": "FAQPage", "mainEntity": [
+          {"@type": "Question", "name": "Why publish a corrections page at all?", "acceptedAnswer": {"@type": "Answer", "text": "A site with no corrections page is making an implicit claim that it has never been wrong, which almost certainly isn't true. Publishing mistakes is the only way the accuracy claims on the rest of the site mean anything."}},
+          {"@type": "Question", "name": "Do you change old issues after they are sent?", "acceptedAnswer": {"@type": "Answer", "text": "The email can't be recalled, so the correction runs in the next issue. The web version of the issue is fixed and carries the date it changed, so the two are never silently out of step."}},
+          {"@type": "Question", "name": "What if a mistake could make someone sick?", "acceptedAnswer": {"@type": "Answer", "text": "Any error in a food-safety number \u2014 a USDA minimum, a holding temperature, a poultry pull temp \u2014 is corrected on the page immediately and sent as its own email rather than waiting for the next issue."}}]}
+      ]}, indent=1, ensure_ascii=False)
+
+    return path, page(path=path, depth=2,
+                      title="Corrections \u2014 The Weekend Pit",
+                      description="Every substantive correction we have made, what was wrong, and how we found out. Corrections run in the next email and on the page itself, dated \u2014 never edited away silently.",
+                      og_type="website", body=body, jsonld=ld)
+
 def write(path, content):
     out = os.path.join(ROOT, path.strip("/"), "index.html")
     os.makedirs(os.path.dirname(out), exist_ok=True)
@@ -310,13 +414,14 @@ if __name__ == "__main__":
     print("Building archive pages:")
     urls = []
     p, c = about_page(); write(p, c)
+    p, c = corrections_page(); write(p, c)
     p, c = archive_index(); write(p, c); urls.append(p)
     for iss in ISSUES:
         p, c = issue_page(iss); write(p, c); urls.append(p)
 
     # sitemap
     entries = [("/", "weekly", "1.0"), ("/temperatures/", "monthly", "0.9"),
-               ("/archive/", "weekly", "0.8"), ("/about/", "monthly", "0.7")
+               ("/archive/", "weekly", "0.8"), ("/about/", "monthly", "0.7"), ("/corrections/", "monthly", "0.6")
                ] + [(u, "yearly", "0.7") for u in urls if u != "/archive/"]
     sm = ['<?xml version="1.0" encoding="UTF-8"?>',
           '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">']

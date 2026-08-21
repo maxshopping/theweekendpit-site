@@ -177,3 +177,22 @@ ISSUES = [
  ],
 },
 ]
+
+# ---------------------------------------------------------------------------
+# Corrections log — rendered at /corrections/
+#
+# Append newest-first. Only substantive corrections belong here: a number, a
+# claim, a source, or anything a reader could have acted on. Typos, formatting
+# and broken links are fixed silently — logging those would bury the real ones.
+#
+# Each entry:
+#   date    ISO date the correction was made
+#   where   human name of the page or issue it affected, e.g. "Issue No. 02"
+#   url     path on this site, or None if it only ever went out by email
+#   what    what was wrong
+#   now     what it says now
+#   how     how we found out, e.g. "reader reply", "our own re-check"
+# ---------------------------------------------------------------------------
+
+CORRECTIONS = [
+]
