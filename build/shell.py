@@ -124,6 +124,17 @@ footer img{width:46px;height:46px;flex:none}
 footer .thin{color:var(--brass);font-style:italic;font-family:var(--serif);font-size:16px}
 footer .disc{max-width:520px;line-height:1.6}
 footer a{color:#9C938A}
+footer .disc a{color:var(--brass);text-decoration:none;white-space:nowrap}
+footer .disc a:hover{color:#D9A558;text-decoration:underline}
+
+/* ---------- rules list (about page) ---------- */
+.rules{list-style:none;margin:0;padding:0;counter-reset:rule}
+.rules li{position:relative;padding:0 0 34px 66px;counter-increment:rule}
+.rules li:last-child{padding-bottom:0}
+.rules li::before{content:counter(rule,decimal-leading-zero);position:absolute;left:0;top:2px;
+  font-size:13px;font-weight:800;letter-spacing:.22em;color:var(--brass)}
+.rules h3{margin:0 0 8px;font-size:clamp(19px,1.7vw,23px)}
+.rules p{margin:0;font-size:16.5px}
 
 @media (max-width:640px){
   body{font-size:17px}
@@ -170,7 +181,7 @@ def footer(depth):
     up = "../" * depth
     return f"""<footer><div class="wrap">
   <img src="{up}assets/micro-dark.svg" alt="The Weekend Pit">
-  <p class="disc">The Weekend Pit is reader-supported. Some gear links are affiliate links, always labeled &mdash; if you buy through them we earn a small commission at no extra cost to you. We only recommend gear we'd tell a friend to buy.</p>
+  <p class="disc">The Weekend Pit is reader-supported. Some gear links are affiliate links, always labeled &mdash; if you buy through them we earn a small commission at no extra cost to you. We only recommend gear we'd tell a friend to buy. <a href="/about/">How every number gets checked &rarr;</a></p>
   <span class="thin">Keep the smoke thin.</span>
 </div></footer>"""
 
