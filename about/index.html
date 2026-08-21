@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>About The Weekend Pit — how every number gets checked</title>
+<meta name="description" content="A free weekly email for backyard smokers. Every temperature checked against USDA guidance, every technique cross-checked against two named sources, a flaw named in every gear review, and no invented testimonials.">
+<link rel="icon" href="../../assets/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="../../assets/favicon-32.png" sizes="32x32">
+<link rel="apple-touch-icon" href="../../assets/favicon-180.png">
+<link rel="canonical" href="https://theweekendpit.com/about/">
+<meta name="theme-color" content="#6B2B2B">
+<meta property="og:site_name" content="The Weekend Pit">
+<meta property="og:title" content="About The Weekend Pit — how every number gets checked">
+<meta property="og:description" content="A free weekly email for backyard smokers. Every temperature checked against USDA guidance, every technique cross-checked against two named sources, a flaw named in every gear review, and no invented testimonials.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://theweekendpit.com/about/">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://theweekendpit.com/assets/og-image.png">
+<meta property="og:image:type" content="image/png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="The Weekend Pit &mdash; your Saturday cook, planned by Thursday.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="About The Weekend Pit — how every number gets checked">
+<meta name="twitter:description" content="A free weekly email for backyard smokers. Every temperature checked against USDA guidance, every technique cross-checked against two named sources, a flaw named in every gear review, and no invented testimonials.">
+<meta name="twitter:image" content="https://theweekendpit.com/assets/og-image.png">
+<meta name="twitter:image:alt" content="The Weekend Pit &mdash; your Saturday cook, planned by Thursday.">
+<style>
+:root{
+  --ink:#6B2B2B; --brass:#B5762E; --char:#1F1C1A; --bone:#F2ECE2; --paper:#FBF8F3;
+  --gray:#6E6660; --hair:#DDD4C7;
+  --serif:Georgia,"Iowan Old Style","Times New Roman",serif;
+  --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bone);color:var(--char);font-family:var(--sans);
+  font-size:18px;line-height:1.65;-webkit-font-smoothing:antialiased}
+body::before{content:'';display:block;height:3px;
+  background:linear-gradient(90deg,var(--ink),var(--brass) 35%,#D9A558 50%,var(--brass) 65%,var(--ink))}
+.wrap{max-width:1000px;margin:0 auto;padding:0 32px}
+.narrow{max-width:760px}
+a{color:var(--ink)}
+
+nav{position:sticky;top:0;z-index:60;padding:18px 0;
+  background:rgba(242,236,226,.88);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--hair)}
+nav .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;max-width:1000px}
+nav img{width:40px;height:40px;display:block}
+nav .links{font-size:12px;letter-spacing:2.4px;text-transform:uppercase;font-weight:700}
+nav .links a{color:var(--gray);text-decoration:none;margin-left:24px;transition:color .25s}
+nav .links a:hover,nav .links a[aria-current]{color:var(--ink)}
+
+.crumb{font-size:12px;letter-spacing:2.2px;text-transform:uppercase;font-weight:700;
+  color:var(--gray);padding:34px 0 0}
+.crumb a{color:var(--gray);text-decoration:none}
+.crumb a:hover{color:var(--ink)}
+
+header.page{padding:26px 0 8px}
+.issueno{color:var(--brass);font-size:12px;letter-spacing:3.6px;font-weight:800;
+  text-transform:uppercase;margin-bottom:18px}
+h1{font-family:var(--serif);font-size:clamp(34px,4.4vw,56px);line-height:1.08;margin:0 0 20px;
+  letter-spacing:-.5px;color:var(--char);font-weight:normal}
+.standfirst{font-size:clamp(18px,1.4vw,21px);color:#4A4340;margin:0 0 26px}
+.byline{font-size:13.5px;color:var(--gray);border-top:1px solid var(--hair);
+  border-bottom:1px solid var(--hair);padding:14px 0;margin:0 0 44px}
+.byline b{color:var(--char)}
+
+.answer{background:var(--paper);border:1px solid var(--hair);border-left:3px solid var(--brass);
+  padding:30px 34px;margin:0 0 54px}
+.answer .tag{color:var(--brass);font-size:11.5px;letter-spacing:3.2px;font-weight:800;
+  text-transform:uppercase;margin-bottom:12px}
+.answer p{margin:0;font-size:19px;color:#332E2B}
+.answer p+p{margin-top:14px;font-size:16.5px;color:#4A4340}
+
+section{padding:0 0 56px}
+.sectag{color:var(--brass);font-size:11.5px;letter-spacing:3.2px;font-weight:800;
+  text-transform:uppercase;margin:0 0 10px}
+h2{font-family:var(--serif);font-size:clamp(25px,2.5vw,34px);margin:0 0 18px;
+  color:var(--ink);font-weight:normal;line-height:1.2}
+h3{font-family:var(--serif);font-size:clamp(20px,1.8vw,24px);margin:34px 0 6px;
+  color:var(--char);font-weight:normal}
+p{color:#413B38}
+.sub{color:var(--gray);font-size:15.5px;margin:0 0 22px}
+em.lead{font-style:normal;font-weight:700;color:var(--char)}
+
+.tablewrap{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:0 0 12px}
+table{border-collapse:collapse;width:100%;min-width:520px;font-size:16px;background:var(--paper)}
+caption{text-align:left;font-size:13px;letter-spacing:1.4px;text-transform:uppercase;
+  font-weight:800;color:var(--brass);padding:0 0 12px}
+th,td{text-align:left;padding:13px 16px;border-bottom:1px solid var(--hair);vertical-align:top}
+thead th{background:var(--char);color:var(--bone);font-size:12px;letter-spacing:1.6px;
+  text-transform:uppercase;border-bottom:0}
+tbody th{font-weight:700;color:var(--char);white-space:nowrap}
+td.temp{font-weight:700;color:var(--ink);white-space:nowrap}
+td.note{color:var(--gray);font-size:15px}
+tbody tr:last-child th,tbody tr:last-child td{border-bottom:0}
+tbody tr.finish th,tbody tr.finish td{background:#F3E9DC;color:var(--ink);font-weight:700}
+.tnote{font-size:14.5px;color:var(--gray);margin:0 0 8px}
+
+.flag{background:#F6EDE2;border-left:3px solid var(--ink);padding:20px 24px;margin:24px 0;
+  font-size:16px;color:#413B38}
+.flag b{color:var(--ink)}
+
+.fence{font-family:var(--serif);font-size:clamp(20px,2vw,26px);line-height:1.35;color:var(--ink);
+  border-left:3px solid var(--brass);padding:4px 0 4px 24px;margin:32px 0 0}
+
+.find{background:var(--paper);border:1px solid var(--hair);padding:30px 34px;margin:0}
+.find .tag{color:var(--brass);font-size:11.5px;letter-spacing:3.2px;font-weight:800;
+  text-transform:uppercase;margin-bottom:12px}
+.find h3{margin:0 0 12px;color:var(--ink)}
+.find p{margin:0 0 12px}
+.find p:last-child{margin-bottom:0}
+.find .disc{font-size:14.5px;color:var(--gray);border-top:1px solid var(--hair);
+  padding-top:14px;margin-top:16px}
+
+.sources{background:var(--paper);border-top:1px solid var(--hair);padding:52px 0 60px;margin-top:20px}
+.sources h2{margin-top:0}
+.sources ul{margin:0;padding:0;list-style:none}
+.sources li{padding:0 0 12px 24px;position:relative;font-size:15.5px;color:#4A4340}
+.sources li::before{content:'';position:absolute;left:2px;top:11px;width:9px;height:1.5px;background:var(--brass)}
+
+.issues{list-style:none;margin:0;padding:0}
+.issues li{border-top:1px solid var(--hair);padding:30px 0}
+.issues li:last-child{border-bottom:1px solid var(--hair)}
+.issues .n{color:var(--brass);font-size:11.5px;letter-spacing:3.2px;font-weight:800;
+  text-transform:uppercase;margin-bottom:8px}
+.issues h2{font-size:clamp(23px,2.2vw,30px);margin:0 0 8px}
+.issues h2 a{text-decoration:none}
+.issues h2 a:hover{text-decoration:underline}
+.issues p{margin:0;color:#4A4340;font-size:16.5px}
+
+.cta{background:var(--char);color:var(--bone);padding:80px 0;text-align:center}
+.cta h2{font-family:var(--serif);color:var(--bone);font-size:clamp(28px,3vw,42px);margin:0 0 14px}
+.cta p.k{color:#BEB3A6;max-width:620px;margin:0 auto 32px;font-size:17px}
+.signup{max-width:520px;margin:0 auto}
+.signup .bh{min-height:134px}
+.signup .bh iframe{width:100%!important;height:134px!important;display:block;border:0}
+.signup .bh noscript a{display:inline-block;padding:17px 34px;font-size:16px;font-weight:700;
+  background:var(--ink);color:var(--bone);border-radius:3px;text-decoration:none}
+.micro{font-size:13.5px;color:#8E8377;margin-top:14px}
+
+footer{background:var(--char);color:#9C938A;padding:52px 0;font-size:13.5px;border-top:1px solid #33302D}
+footer .wrap{display:flex;justify-content:space-between;align-items:center;gap:28px;flex-wrap:wrap}
+footer img{width:46px;height:46px;flex:none}
+footer .thin{color:var(--brass);font-style:italic;font-family:var(--serif);font-size:16px}
+footer .disc{max-width:520px;line-height:1.6}
+footer a{color:#9C938A}
+footer .disc a{color:var(--brass);text-decoration:none;white-space:nowrap}
+footer .disc a:hover{color:#D9A558;text-decoration:underline}
+
+/* ---------- rules list (about page) ---------- */
+.rules{list-style:none;margin:0;padding:0;counter-reset:rule}
+.rules li{position:relative;padding:0 0 34px 66px;counter-increment:rule}
+.rules li:last-child{padding-bottom:0}
+.rules li::before{content:counter(rule,decimal-leading-zero);position:absolute;left:0;top:2px;
+  font-size:13px;font-weight:800;letter-spacing:.22em;color:var(--brass)}
+.rules h3{margin:0 0 8px;font-size:clamp(19px,1.7vw,23px)}
+.rules p{margin:0;font-size:16.5px}
+
+@media (max-width:640px){
+  body{font-size:17px}
+  .wrap{padding:0 22px}
+  .answer,.find{padding:24px 22px}
+  .flag{padding:18px 20px}
+  .fence{padding-left:18px}
+  th,td{padding:11px 13px}
+  nav .links a{margin-left:13px;font-size:11px}
+}
+@media print{nav{position:static}.cta{display:none}}
+@media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+
+<nav><div class="wrap">
+  <a href="/"><img src="../../assets/micro.svg" alt="The Weekend Pit"></a>
+  <div class="links">
+    <a href="/archive/">Archive</a>
+    <a href="/temperatures/">Temperatures</a>
+    <a href="#subscribe">Subscribe</a>
+  </div>
+</div></nav>
+
+<div class="wrap narrow">
+  <p class="crumb"><a href="/">The Weekend Pit</a> &nbsp;/&nbsp; About</p>
+
+  <header class="page">
+    <div class="issueno">About</div>
+    <h1>Every number here had to earn its place.</h1>
+    <p class="standfirst">Barbecue advice is mostly confident men repeating each other. This is one email a week that tries to be something else: checked, sourced, and honest about what nobody actually knows.</p>
+    <p class="byline">The Weekend Pit is a free email, every Thursday at 7am. It comes from a backyard, not a test kitchen.</p>
+  </header>
+
+  <div class="answer">
+    <div class="tag">The short answer</div>
+    <p>The Weekend Pit is a free weekly email for backyard smokers. Every temperature is checked against <b>USDA</b> guidance, every technique is cross-checked against at least <b>two</b> credible sources, and those sources get named on the page.</p>
+    <p>Every gear review names a flaw. Where the experts genuinely disagree, we say so instead of picking a winner and pretending it was obvious.</p>
+  </div>
+</div>
+
+<div class="wrap narrow">
+
+<section>
+  <div class="sectag">The rules</div>
+  <h2>Four things that don&rsquo;t bend</h2>
+  <ol class="rules">
+    <li>
+      <h3>Every temperature is checked against the USDA</h3>
+      <p>Safety floors come from foodsafety.gov, not from memory and not from another blog. When our pull temperature sits above the safety minimum &mdash; which for brisket and pork butt it always does &mdash; we say which number is which and why. When a common practice sits <em>below</em> the USDA minimum, like tri-tip at 130&ndash;140&deg;F, we print both numbers and tell you plainly that you are choosing to depart from official guidance.</p>
+    </li>
+    <li>
+      <h3>Two credible sources, named</h3>
+      <p>No technique goes out on one source. Every claim traces to at least two, and they are listed at the bottom of the page so you can go read them yourself and decide we were wrong. Sources get a date, because a temperature guide from 2011 is not the same document it was.</p>
+    </li>
+    <li>
+      <h3>Every gear review names a flaw</h3>
+      <p>If we can&rsquo;t find something wrong with it, we haven&rsquo;t looked hard enough to recommend it. The flaw is the part that makes the praise worth reading. Budget picks get the same treatment as expensive ones &mdash; usually more, because the cheap thing is what most people should actually buy.</p>
+    </li>
+    <li>
+      <h3>No invented testimonials. Ever.</h3>
+      <p>There is no fake reader quote on this site, no invented subscriber count, no stock-photo pitmaster with a made-up name. When a real reader says something worth quoting, their name will be on it and they will have said yes. Until then, this space stays empty, which is its own kind of information.</p>
+    </li>
+  </ol>
+</section>
+
+<section>
+  <div class="sectag">Where we disagree with everyone else</div>
+  <h2>Saying &ldquo;nobody knows&rdquo; out loud</h2>
+  <p>The most useful thing a barbecue writer can do is admit where the evidence runs out. Ribs are the clearest case: ThermoWorks says pull at 180&ndash;195&deg;F, AmazingRibs says around 203&deg;F, SmokedBBQSource says 180&ndash;185&deg;F. All three are careful, credible outfits. They disagree because ribs genuinely vary &mdash; by cut, by thickness, by how the pit ran that day.</p>
+  <p>The tempting move is to pick one, state it with confidence, and look authoritative. We do the other thing: name the disagreement, explain why it exists, and teach the test that outlives all three numbers. You will find that pattern everywhere here. It is slower to read and it is the reason the advice holds up.</p>
+  <p class="fence">&ldquo;If the sources disagree, that&rsquo;s the interesting part &mdash; not the part to hide.&rdquo;</p>
+</section>
+
+<section>
+  <div class="sectag">Money</div>
+  <h2>How this pays for itself, honestly</h2>
+  <p>The email is free and always will be. It is reader-supported, which in practice means gear links: if you buy something through one, we earn a small commission at no extra cost to you.</p>
+  <div class="flag"><b>Right now, there are none.</b> Our affiliate accounts aren&rsquo;t live yet, so every gear recommendation on this site currently earns us nothing. When that changes, every affiliate link will be labeled as one, inline, every time &mdash; not buried in a footer disclosure you were never going to read.</div>
+  <p>If sponsorships happen later, they will be marked as sponsorships and they will not buy a recommendation. A sponsor can pay for space. Nobody can pay to be called good.</p>
+</section>
+
+<section>
+  <div class="sectag">What lands Thursday</div>
+  <h2>One email, four parts, about six minutes</h2>
+  <p><b>The Deep Smoke</b> &mdash; one technique explained properly: the physics, the method, and the one mistake everyone makes.</p>
+  <p><b>This Weekend&rsquo;s Cook</b> &mdash; one recipe with the timeline built backward from Saturday 6:00pm dinner, so Thursday-you knows what Saturday-you has to do.</p>
+  <p><b>Pit Find</b> &mdash; one piece of gear, flaw named. Sometimes it&rsquo;s $12.</p>
+  <p><b>Reader&rsquo;s Pit</b> &mdash; one reader&rsquo;s cook, and the one thing they&rsquo;d do differently.</p>
+  <p class="sub" style="margin-top:22px">The first three live on this site afterward, in <a href="/archive/">the archive</a>. Reader&rsquo;s Pit stays in the email, where it belongs.</p>
+</section>
+
+<section>
+  <div class="sectag">Corrections</div>
+  <h2>When we get it wrong</h2>
+  <p>We will. A page that has never been corrected is either very young or not being checked. If you find a number here that&rsquo;s wrong, reply to any issue and tell us &mdash; the correction goes in the next email <em>and</em> gets fixed on the page it came from, with the date it changed. Silently editing a mistake away is its own small dishonesty.</p>
+</section>
+
+<section class="faq">
+  <h2>Common questions</h2>
+
+  <h3>Is The Weekend Pit free?</h3>
+  <p>Yes, and it stays free. One email every Thursday at 7am, unsubscribe any time. There is no paywall and no upsell at the end of an issue.</p>
+
+  <h3>Do you get paid to recommend gear?</h3>
+  <p>Not currently &mdash; our affiliate accounts aren&rsquo;t live, so nothing on this site earns a commission today. When they are, every affiliate link will say so inline. No recommendation is ever paid for: a sponsor can buy space, not praise.</p>
+
+  <h3>How do you verify the temperatures?</h3>
+  <p>Safety minimums come from the USDA via foodsafety.gov. Cooking targets are cross-checked against at least two credible sources &mdash; typically AmazingRibs, SmokedBBQSource and ThermoWorks &mdash; and every source is named and dated on the page. Where they disagree, we print the disagreement rather than picking one.</p>
+
+  <h3>Who writes it?</h3>
+  <p>It comes from a backyard pit and a Thursday morning, not a content team or a test kitchen. That is deliberate: the point of this newsletter is that it answers the questions a person with one smoker and one Saturday actually has.</p>
+
+  <h3>What&rsquo;s the free temperature sheet?</h3>
+  <p>A one-page chart of every number that matters at the pit &mdash; USDA safety floors and real pull temps for brisket, butt, ribs and birds &mdash; sized to tape inside a cabinet door. It&rsquo;s free with no signup required. The <a href="/temperatures/">full chart is here</a>, and the <a href="/assets/temperature-sheet.pdf">printable PDF is here</a>.</p>
+
+  <h3>How often does it come out?</h3>
+  <p>Once a week, Thursday at 7am. Thursday because it gives you time to shop before the weekend; once a week because that is how often most people cook.</p>
+</section>
+
+</div>
+
+<div class="cta" id="subscribe"><div class="wrap">
+  <h2>Thursday, 7am. Bring coffee.</h2>
+  <p class="k">One free email a week: a technique explained properly, a recipe timed backward from Saturday dinner, and one piece of gear with its flaw named.</p>
+  <div class="signup">
+    <div class="bh">
+      <script async src="https://subscribe-forms.beehiiv.com/v3/loader.js" data-beehiiv-form="a81f4270-2ff0-4d62-a02a-ae3c8bc15dae"></script>
+      <noscript><a href="https://theweekendpit.beehiiv.com/subscribe">Subscribe to The Weekend Pit</a></noscript>
+    </div>
+    <p class="micro">Free. One email a week. Unsubscribe anytime &mdash; no hard feelings at the fence line.</p>
+  </div>
+</div></div>
+
+<footer><div class="wrap">
+  <img src="../../assets/micro-dark.svg" alt="The Weekend Pit">
+  <p class="disc">The Weekend Pit is reader-supported. Some gear links are affiliate links, always labeled &mdash; if you buy through them we earn a small commission at no extra cost to you. We only recommend gear we'd tell a friend to buy. <a href="/about/">How every number gets checked &rarr;</a></p>
+  <span class="thin">Keep the smoke thin.</span>
+</div></footer>
+
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@graph": [
+  {
+   "@type": "BreadcrumbList",
+   "itemListElement": [
+    {
+     "@type": "ListItem",
+     "position": 1,
+     "name": "The Weekend Pit",
+     "item": "https://theweekendpit.com/"
+    },
+    {
+     "@type": "ListItem",
+     "position": 2,
+     "name": "About",
+     "item": "https://theweekendpit.com/about/"
+    }
+   ]
+  },
+  {
+   "@type": "AboutPage",
+   "name": "About The Weekend Pit",
+   "description": "How The Weekend Pit checks every number: USDA safety floors, two named sources per technique, a flaw named in every gear review, and no invented testimonials.",
+   "url": "https://theweekendpit.com/about/",
+   "inLanguage": "en-US",
+   "dateModified": "2026-08-21",
+   "isPartOf": {
+    "@type": "WebSite",
+    "name": "The Weekend Pit",
+    "url": "https://theweekendpit.com/"
+   },
+   "about": {
+    "@type": "Organization",
+    "name": "The Weekend Pit",
+    "url": "https://theweekendpit.com/",
+    "description": "A free weekly email for backyard smokers: one technique explained properly, one recipe timed backward from Saturday dinner, and one honest gear review — every Thursday at 7am.",
+    "logo": {
+     "@type": "ImageObject",
+     "url": "https://theweekendpit.com/assets/logo-stamp.svg"
+    },
+    "publishingPrinciples": "https://theweekendpit.com/about/"
+   }
+  },
+  {
+   "@type": "FAQPage",
+   "mainEntity": [
+    {
+     "@type": "Question",
+     "name": "Is The Weekend Pit free?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Yes, and it stays free. One email every Thursday at 7am, unsubscribe any time. There is no paywall and no upsell."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Do you get paid to recommend gear?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Not currently — our affiliate accounts aren't live, so nothing on the site earns a commission today. When they are, every affiliate link will say so inline. No recommendation is ever paid for: a sponsor can buy space, not praise."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "How do you verify the temperatures?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Safety minimums come from the USDA via foodsafety.gov. Cooking targets are cross-checked against at least two credible sources — typically AmazingRibs, SmokedBBQSource and ThermoWorks — and every source is named and dated on the page. Where they disagree, we print the disagreement rather than picking one."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Who writes The Weekend Pit?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "It comes from a backyard pit and a Thursday morning, not a content team or a test kitchen — so it answers the questions a person with one smoker and one Saturday actually has."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "How often does The Weekend Pit come out?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Once a week, Thursday at 7am. Thursday gives you time to shop before the weekend."
+     }
+    }
+   ]
+  }
+ ]
+}
+</script>
+<script type="text/javascript" async src="https://subscribe-forms.beehiiv.com/attribution.js"></script>
+</body>
+</html>
