@@ -5,7 +5,7 @@ SITE = "https://theweekendpit.com"
 
 CSS = """
 :root{
-  --ink:#6B2B2B; --brass:#B5762E; --char:#1F1C1A; --bone:#F2ECE2; --paper:#FBF8F3;
+  --ink:#6B2B2B; --brass:#B5762E;--brass-ink:#905E25; --char:#1F1C1A; --bone:#F2ECE2; --paper:#FBF8F3;
   --gray:#6E6660; --hair:#DDD4C7;
   --serif:Georgia,"Iowan Old Style","Times New Roman",serif;
   --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
@@ -35,7 +35,7 @@ nav .links a:hover,nav .links a[aria-current]{color:var(--ink)}
 .crumb a:hover{color:var(--ink)}
 
 header.page{padding:26px 0 8px}
-.issueno{color:var(--brass);font-size:12px;letter-spacing:3.6px;font-weight:800;
+.issueno{color:var(--brass-ink);font-size:12px;letter-spacing:3.6px;font-weight:800;
   text-transform:uppercase;margin-bottom:18px}
 h1{font-family:var(--serif);font-size:clamp(34px,4.4vw,56px);line-height:1.08;margin:0 0 20px;
   letter-spacing:-.5px;color:var(--char);font-weight:normal}
@@ -46,13 +46,13 @@ h1{font-family:var(--serif);font-size:clamp(34px,4.4vw,56px);line-height:1.08;ma
 
 .answer{background:var(--paper);border:1px solid var(--hair);border-left:3px solid var(--brass);
   padding:30px 34px;margin:0 0 54px}
-.answer .tag{color:var(--brass);font-size:11.5px;letter-spacing:3.2px;font-weight:800;
+.answer .tag{color:var(--brass-ink);font-size:11.5px;letter-spacing:3.2px;font-weight:800;
   text-transform:uppercase;margin-bottom:12px}
 .answer p{margin:0;font-size:19px;color:#332E2B}
 .answer p+p{margin-top:14px;font-size:16.5px;color:#4A4340}
 
 section{padding:0 0 56px}
-.sectag{color:var(--brass);font-size:11.5px;letter-spacing:3.2px;font-weight:800;
+.sectag{color:var(--brass-ink);font-size:11.5px;letter-spacing:3.2px;font-weight:800;
   text-transform:uppercase;margin:0 0 10px}
 h2{font-family:var(--serif);font-size:clamp(25px,2.5vw,34px);margin:0 0 18px;
   color:var(--ink);font-weight:normal;line-height:1.2}
@@ -65,7 +65,7 @@ em.lead{font-style:normal;font-weight:700;color:var(--char)}
 .tablewrap{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:0 0 12px}
 table{border-collapse:collapse;width:100%;min-width:520px;font-size:16px;background:var(--paper)}
 caption{text-align:left;font-size:13px;letter-spacing:1.4px;text-transform:uppercase;
-  font-weight:800;color:var(--brass);padding:0 0 12px}
+  font-weight:800;color:var(--brass-ink);padding:0 0 12px}
 th,td{text-align:left;padding:13px 16px;border-bottom:1px solid var(--hair);vertical-align:top}
 thead th{background:var(--char);color:var(--bone);font-size:12px;letter-spacing:1.6px;
   text-transform:uppercase;border-bottom:0}
@@ -84,7 +84,7 @@ tbody tr.finish th,tbody tr.finish td{background:#F3E9DC;color:var(--ink);font-w
   border-left:3px solid var(--brass);padding:4px 0 4px 24px;margin:32px 0 0}
 
 .find{background:var(--paper);border:1px solid var(--hair);padding:30px 34px;margin:0}
-.find .tag{color:var(--brass);font-size:11.5px;letter-spacing:3.2px;font-weight:800;
+.find .tag{color:var(--brass-ink);font-size:11.5px;letter-spacing:3.2px;font-weight:800;
   text-transform:uppercase;margin-bottom:12px}
 .find h3{margin:0 0 12px;color:var(--ink)}
 .find p{margin:0 0 12px}
@@ -101,7 +101,7 @@ tbody tr.finish th,tbody tr.finish td{background:#F3E9DC;color:var(--ink);font-w
 .issues{list-style:none;margin:0;padding:0}
 .issues li{border-top:1px solid var(--hair);padding:30px 0}
 .issues li:last-child{border-bottom:1px solid var(--hair)}
-.issues .n{color:var(--brass);font-size:11.5px;letter-spacing:3.2px;font-weight:800;
+.issues .n{color:var(--brass-ink);font-size:11.5px;letter-spacing:3.2px;font-weight:800;
   text-transform:uppercase;margin-bottom:8px}
 .issues h2{font-size:clamp(23px,2.2vw,30px);margin:0 0 8px}
 .issues h2 a{text-decoration:none}
@@ -124,7 +124,7 @@ footer img{width:46px;height:46px;flex:none}
 footer .thin{color:var(--brass);font-style:italic;font-family:var(--serif);font-size:16px}
 footer .disc{max-width:520px;line-height:1.6}
 footer a{color:#9C938A}
-footer .disc a{color:var(--brass);text-decoration:none;white-space:nowrap}
+footer .disc a{color:var(--brass);text-decoration:underline;text-underline-offset:2px;white-space:nowrap}
 footer .disc a:hover{color:#D9A558;text-decoration:underline}
 
 /* ---------- rules list (about page) ---------- */
@@ -132,7 +132,7 @@ footer .disc a:hover{color:#D9A558;text-decoration:underline}
 .rules li{position:relative;padding:0 0 34px 66px;counter-increment:rule}
 .rules li:last-child{padding-bottom:0}
 .rules li::before{content:counter(rule,decimal-leading-zero);position:absolute;left:0;top:2px;
-  font-size:13px;font-weight:800;letter-spacing:.22em;color:var(--brass)}
+  font-size:13px;font-weight:800;letter-spacing:.22em;color:var(--brass-ink)}
 .rules h3{margin:0 0 8px;font-size:clamp(19px,1.7vw,23px)}
 .rules p{margin:0;font-size:16.5px}
 
@@ -216,19 +216,28 @@ def page(*, path, depth, title, description, og_type, body, jsonld, current=None
 <meta name="twitter:description" content="{description}">
 <meta name="twitter:image" content="{SITE}/assets/og-image.png">
 <meta name="twitter:image:alt" content="The Weekend Pit &mdash; your Saturday cook, planned by Thursday.">
-<style>{CSS}</style>
+<style>{CSS}.skip{{position:absolute;left:-9999px;top:0;z-index:300}}.skip:focus{{left:10px;top:10px;padding:11px 18px;background:var(--ink);color:var(--bone);font:700 15px/1 var(--sans),system-ui,sans-serif;text-decoration:none;border-radius:3px;outline:3px solid var(--brass);outline-offset:2px}}main{{display:block}}main:focus{{outline:none}}a:focus-visible,button:focus-visible,input:focus-visible,summary:focus-visible{{outline:3px solid var(--brass);outline-offset:2px;border-radius:2px}}</style>
 </head>
 <body>
+<a class="skip" href="#main">Skip to main content</a>
 
 {nav(depth, current)}
 
+<main id="main" tabindex="-1">
+
 {body}
+
+</main>
 
 {footer(depth)}
 
 <script type="application/ld+json">
 {jsonld}
 </script>
+<script>/* beehiiv injects the signup iframe; give it an accessible name (WCAG 4.1.2). Non-fatal. */
+(function(){{try{{var n=0,t=setInterval(function(){{var f=document.querySelectorAll('.bh iframe,.signup iframe');
+for(var i=0;i<f.length;i++){{if(!f[i].getAttribute('title'))f[i].setAttribute('title','Subscribe to The Weekend Pit');}}
+if(f.length||++n>40){{clearInterval(t);}}}},250);}}catch(e){{}}}})();</script>
 <script type="text/javascript" async src="https://subscribe-forms.beehiiv.com/attribution.js"></script>
 </body>
 </html>
